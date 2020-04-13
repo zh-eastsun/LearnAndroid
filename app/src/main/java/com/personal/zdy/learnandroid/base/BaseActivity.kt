@@ -6,9 +6,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.personal.zdy.learnandroid.R
 
-abstract class BaseActivity<P : BasePresenter> : AppCompatActivity(), BaseView {
+abstract class BaseActivity<P : BasePresenterImpl> : AppCompatActivity(), BaseView {
 
-    lateinit var basePresenter: P
+    protected open lateinit var mPresenter: P
     lateinit var baseDialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
