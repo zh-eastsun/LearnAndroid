@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">learnandroid</string>
+    <string name="app_name">Love Android</string>
+    <string name="positive_button_text">确定</string>
 </resources>
