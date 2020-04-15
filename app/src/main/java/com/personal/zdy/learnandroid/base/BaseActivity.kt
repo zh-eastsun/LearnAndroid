@@ -6,20 +6,33 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.personal.zdy.learnandroid.R
 
-abstract class BaseActivity<P : BasePresenterImpl> : AppCompatActivity(), BaseView {
+/**
+ * @author zhangdongyang
+ * @date 2020/04/14
+ */
+abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
 
-    protected open lateinit var mPresenter: P
     lateinit var baseDialog: AlertDialog
+    lateinit var mPresenter: P
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val layoutRes = initLayout()
         doSthBeforeSetContentView()
         setContentView(layoutRes)
+        mPresenter = onBindPresenter()
+        mPresenter.attachView(this)
         initData()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter.detachView()
+    }
+
     fun doSthBeforeSetContentView() {}
+
+    abstract fun onBindPresenter(): P
 
     abstract fun initData()
 

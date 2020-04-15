@@ -1,7 +1,14 @@
 package com.personal.zdy.learnandroid.mvp.splash
 
-import com.personal.zdy.learnandroid.base.BasePresenterImpl
+import com.personal.zdy.learnandroid.base.BasePresenter
 
-class SplashPresenter : BasePresenterImpl(){
+/**
+ * @author zhangdongyang
+ * @date 2020/04/14
+ */
+class SplashPresenter : BasePresenter(), SplashContract.Presenter {
+
+    private val model: SplashModel = SplashModel()
+
 
 }

@@ -1,6 +1,6 @@
 package com.personal.zdy.learnandroid
 
-import com.personal.zdy.learnandroid.base.BasePresenterImpl
+import com.personal.zdy.learnandroid.base.IPresenter
 
-class MainPresenter : BasePresenterImpl() {
+class MainPresenter  {
 }

@@ -3,6 +3,10 @@ package com.personal.zdy.learnandroid.base
 import android.app.Application
 import android.content.Context
 
+/**
+ * @author zhangdongyang
+ * @date 2020/04/14
+ */
 class BaseApplication : Application() {
     override fun getApplicationContext(): Context {
         return super.getApplicationContext()
