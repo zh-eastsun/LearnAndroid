@@ -8,7 +8,4 @@ import com.personal.zdy.learnandroid.base.BasePresenter
  */
 class SplashPresenter : BasePresenter(), SplashContract.Presenter {
 
-    private val model: SplashModel = SplashModel()
-
-
 }
