@@ -1,7 +1,9 @@
 package com.personal.zdy.learnandroid.base
 
 import android.content.DialogInterface
+import android.os.Build
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.personal.zdy.learnandroid.R
@@ -32,7 +34,13 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
         mPresenter.detachView()
     }
 
-    open fun initView(){}
+    open fun initView(){
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT)
+        {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+        }
+    }
     open fun doWork(){}
     open fun doSthBeforeSetContentView() {}
 
