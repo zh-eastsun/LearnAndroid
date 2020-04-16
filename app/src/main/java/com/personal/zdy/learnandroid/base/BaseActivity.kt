@@ -20,9 +20,11 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
         val layoutRes = initLayout()
         doSthBeforeSetContentView()
         setContentView(layoutRes)
+        initView()
         mPresenter = onBindPresenter()
         mPresenter.attachView(this)
         initData()
+        doWork()
     }
 
     override fun onDestroy() {
@@ -30,7 +32,9 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
         mPresenter.detachView()
     }
 
-    fun doSthBeforeSetContentView() {}
+    open fun initView(){}
+    open fun doWork(){}
+    open fun doSthBeforeSetContentView() {}
 
     abstract fun onBindPresenter(): P
 

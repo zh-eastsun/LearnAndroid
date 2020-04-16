@@ -8,4 +8,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
+    <TextView
+        android:id="@+id/text_rec"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:layout_margin="5dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/corner_5dp"
+        android:layout_gravity="end"
+        android:gravity="center"/>
+
 </FrameLayout>
