@@ -3,13 +3,13 @@ package com.personal.zdy.learnandroid.base
 import android.app.Application
 import android.content.Context
 import android.text.TextUtils
-import android.util.Log
 import com.argusapm.android.api.ApmTask
 import com.argusapm.android.api.Client
 import com.argusapm.android.core.Config
 import com.argusapm.android.network.cloudrule.RuleSyncRequest
 import com.argusapm.android.network.upload.CollectDataSyncUpload
 import com.personal.zdy.learnandroid.R
+import com.personal.zdy.learnandroid.util.LogUtil
 import com.personal.zdy.learnandroid.util.ProcessUtils
 
 /**
@@ -18,12 +18,14 @@ import com.personal.zdy.learnandroid.util.ProcessUtils
  */
 class BaseApplication : Application() {
 
-    private val TAG = this.javaClass.simpleName
-
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
+        initArgusAPM()
+        initLogUtil()
+        LogUtil.e("BaseApplication","attachBaseContext")
+    }
 
-        Log.d(TAG,"Init Application")
+    private fun initArgusAPM(){
         // 注：根据实际情况，来选择主进程
         // 如果您有常驻进程，则主进程是常驻进程
         // 如果您是单进程模型，则主进程是UI进程
@@ -52,22 +54,10 @@ class BaseApplication : Application() {
 
         Client.attach(builder.build())
         // Client.isDebugOpen(true, getPackageName());//  是否展示debug模式悬浮窗。根据项目需求添加
-        Client.startWork();
+        Client.startWork()
     }
 
-    override fun getApplicationContext(): Context {
-        return super.getApplicationContext()
-    }
-
-    override fun onCreate() {
-        super.onCreate()
-    }
-
-    override fun onLowMemory() {
-        super.onLowMemory()
-    }
-
-    override fun onTerminate() {
-        super.onTerminate()
+    private fun initLogUtil(){
+        LogUtil.init(getString(R.string.app_name),true)
     }
 }
