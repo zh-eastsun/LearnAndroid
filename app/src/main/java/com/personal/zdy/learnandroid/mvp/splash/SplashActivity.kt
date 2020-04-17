@@ -1,7 +1,6 @@
 package com.personal.zdy.learnandroid.mvp.splash
 
 import android.content.Intent
-import android.os.Handler
 import android.view.View
 import com.bumptech.glide.Glide
 import com.personal.zdy.learnandroid.R
