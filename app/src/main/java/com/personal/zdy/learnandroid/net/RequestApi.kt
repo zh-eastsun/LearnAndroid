@@ -6,6 +6,7 @@ package com.personal.zdy.learnandroid.net
  */
 interface RequestApi {
     companion object{
-        val SPLASH_URL = "http://www.xiyou.edu.cn/newWeb/images/foot_2_23.png"
+        val BASE_URL = "https://www.wanandroid.com"
+        val SPLASH_URL = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587392603440&di=79e4c4ee119a1d668328646bd0d2da6b&imgtype=0&src=http%3A%2F%2Fjn.android.tedu.cn%2Fimg%2F201703%2F1489134922211.png"
     }
 }

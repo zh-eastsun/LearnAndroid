@@ -1,13 +1,33 @@
 package com.personal.zdy.learnandroid.mvp.login
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import com.personal.zdy.learnandroid.R
+import com.personal.zdy.learnandroid.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+/**
+ * Login业务View层逻辑
+ *
+ * @author zhangdongyang
+ * @date 2020/04/20
+ */
+class LoginActivity : BaseActivity<LoginPresenter>(){
+    override fun onBindPresenter(): LoginPresenter {
+        return LoginPresenter()
     }
+
+    override fun initData() {
+
+    }
+
+    override fun initView() {
+        super.initView()
+        test.setOnClickListener {
+            Thread.sleep(1500)
+        }
+    }
+
+    override fun initLayout(): Int {
+        return R.layout.activity_login
+    }
+
 }
