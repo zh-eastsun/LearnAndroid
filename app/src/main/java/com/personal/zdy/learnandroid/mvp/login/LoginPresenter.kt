@@ -10,11 +10,9 @@ import com.personal.zdy.learnandroid.base.IView
  */
 class LoginPresenter : LoginContract.Presenter{
     override fun attachView(view: IView) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun detachView() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }

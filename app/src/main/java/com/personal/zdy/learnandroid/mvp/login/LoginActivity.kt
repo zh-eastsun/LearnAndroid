@@ -21,9 +21,6 @@ class LoginActivity : BaseActivity<LoginPresenter>(){
 
     override fun initView() {
         super.initView()
-        test.setOnClickListener {
-            Thread.sleep(1500)
-        }
     }
 
     override fun initLayout(): Int {

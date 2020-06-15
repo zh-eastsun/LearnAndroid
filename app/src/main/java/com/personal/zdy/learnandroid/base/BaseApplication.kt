@@ -3,7 +3,6 @@ package com.personal.zdy.learnandroid.base
 import android.app.Application
 import android.content.Context
 import com.personal.zdy.learnandroid.R
-import com.personal.zdy.learnandroid.ui.BlockDetectByPrinterJava
 import com.personal.zdy.learnandroid.util.LogUtil
 
 /**
@@ -24,6 +23,5 @@ open class BaseApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        BlockDetectByPrinterJava.start()
     }
 }

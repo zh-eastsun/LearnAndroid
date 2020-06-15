@@ -1,12 +1,14 @@
 package com.personal.zdy.learnandroid.mvp.splash
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.view.View
 import com.bumptech.glide.Glide
 import com.personal.zdy.learnandroid.R
 import com.personal.zdy.learnandroid.base.BaseActivity
 import com.personal.zdy.learnandroid.mvp.login.LoginActivity
 import com.personal.zdy.learnandroid.net.RequestApi
+import com.personal.zdy.learnandroid.util.ImageUtils
 import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.GlobalScope
@@ -53,7 +55,7 @@ class SplashActivity : BaseActivity<SplashPresenter>(), SplashContract.View {
     override fun initData() {
         // 加载网络图片
         Glide.with(this)
-            .load(RequestApi.SPLASH_URL)
+            .load(ImageUtils.getAssetsSplashPicture(this))
             .error(R.mipmap.ic_launcher)
             .into(image_splash)
 
