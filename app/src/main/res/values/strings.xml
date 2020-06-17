@@ -4,5 +4,8 @@
     <string name="app_version">1.0</string>
     <string name="hint_input_account">请输入账号</string>
     <string name="hint_input_password">请输入密码</string>
+    <string name="user_login_tip">用户登录</string>
+    <string name="register">注册</string>
+    <string name="login">登录</string>
 
 </resources>

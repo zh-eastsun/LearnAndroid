@@ -34,13 +34,15 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
         mPresenter.detachView()
     }
 
-    open fun initView(){
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT)
-        {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+    open fun initView() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            val localLayoutParams = window.attributes
+            localLayoutParams.flags =
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or localLayoutParams.flags
         }
     }
-    open fun doWork(){}
+
+    open fun doWork() {}
     open fun doSthBeforeSetContentView() {}
 
     abstract fun onBindPresenter(): P
@@ -66,7 +68,8 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
     override fun showTipDialog(title: String, tip: String) {
         baseDialog = AlertDialog.Builder(this)
             .setCancelable(true)
-            .setPositiveButton(R.string.positive_button_text
+            .setPositiveButton(
+                R.string.positive_button_text
             ) { _: DialogInterface, _: Int ->
                 hideDialog()
             }

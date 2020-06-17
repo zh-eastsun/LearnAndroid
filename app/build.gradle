@@ -58,4 +58,5 @@ dependencies {
     implementation rootProject.ext.dependencies['glide']
     implementation rootProject.ext.dependencies['kotlin-coroutines']
     implementation rootProject.ext.dependencies['constraintLayout']
+    implementation rootProject.ext.dependencies['materialDesign']
 }
