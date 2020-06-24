@@ -6,6 +6,7 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.personal.zdy.learnandroid.R
 import com.personal.zdy.learnandroid.base.BaseActivity
+import com.personal.zdy.learnandroid.base.IView
 import com.personal.zdy.learnandroid.mvp.login.LoginActivity
 import com.personal.zdy.learnandroid.net.RequestApi
 import com.personal.zdy.learnandroid.util.ImageUtils
@@ -20,7 +21,7 @@ import java.util.*
  * @author zhangdongyang
  * @date 2020/04/14
  */
-class SplashActivity : BaseActivity<SplashPresenter>(), SplashContract.View {
+class SplashActivity : BaseActivity<SplashPresenter>(), IView {
 
     // 倒计时结束时间(秒)
     private var recLen = 5

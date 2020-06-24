@@ -21,12 +21,17 @@ class LoginActivity : BaseActivity<LoginPresenter>(){
 
     override fun initView() {
         super.initView()
+        // actionbar逻辑
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
         toolbar.setNavigationOnClickListener {
             finish()
         }
+
+        // 注册按钮逻辑
+
+        // 登录按钮逻辑
     }
 
     override fun initLayout(): Int {

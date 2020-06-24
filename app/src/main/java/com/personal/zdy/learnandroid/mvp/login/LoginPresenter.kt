@@ -1,5 +1,6 @@
 package com.personal.zdy.learnandroid.mvp.login
 
+import com.personal.zdy.learnandroid.base.IPresenter
 import com.personal.zdy.learnandroid.base.IView
 
 /**
@@ -8,11 +9,15 @@ import com.personal.zdy.learnandroid.base.IView
  * @author zhangdongyang
  * @date 2020/04/20
  */
-class LoginPresenter : LoginContract.Presenter{
+class LoginPresenter : IPresenter{
+    var currentView: IView? = null
+
     override fun attachView(view: IView) {
+        this.currentView = view
     }
 
     override fun detachView() {
+        this.currentView = null
     }
 
 }
