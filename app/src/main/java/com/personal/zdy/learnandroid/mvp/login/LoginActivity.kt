@@ -21,6 +21,12 @@ class LoginActivity : BaseActivity<LoginPresenter>(){
 
     override fun initView() {
         super.initView()
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     override fun initLayout(): Int {
