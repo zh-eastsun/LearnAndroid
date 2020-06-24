@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_login.*
  * @author zhangdongyang
  * @date 2020/04/20
  */
-class LoginActivity : BaseActivity<LoginPresenter>(){
+class LoginActivity : BaseActivity<LoginPresenter>() {
     override fun onBindPresenter(): LoginPresenter {
         return LoginPresenter()
     }
@@ -30,8 +30,14 @@ class LoginActivity : BaseActivity<LoginPresenter>(){
         }
 
         // 注册按钮逻辑
+        btn_register.setOnClickListener {
+            mPresenter.registered()
+        }
 
         // 登录按钮逻辑
+        btn_login.setOnClickListener {
+            mPresenter.login()
+        }
     }
 
     override fun initLayout(): Int {
