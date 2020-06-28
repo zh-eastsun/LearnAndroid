@@ -8,10 +8,10 @@ import java.lang.ref.WeakReference
 open class BasePresenter : IPresenter{
 
     // 主线程协程
-    val uiJob = Job()
+    private val uiJob = Job()
     val uiScope = CoroutineScope(Dispatchers.Main + uiJob)
     // IO线程协程
-    val ioJob = Job()
+    private val ioJob = Job()
     val ioScope = CoroutineScope(Dispatchers.IO + ioJob)
 
     private var viewReference: WeakReference<IView>? = null
