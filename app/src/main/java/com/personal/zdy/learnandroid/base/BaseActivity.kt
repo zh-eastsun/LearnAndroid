@@ -7,15 +7,22 @@ import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.personal.zdy.learnandroid.R
+import kotlinx.coroutines.*
 
 /**
  * @author zhangdongyang
  * @date 2020/04/14
  */
-abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
+abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView ,CoroutineScope by MainScope(){
 
     lateinit var baseDialog: AlertDialog
     lateinit var mPresenter: P
+    // 主线程协程
+    val uiJob = Job()
+    val uiScope = CoroutineScope(Dispatchers.Main + uiJob)
+    // IO线程协程
+    val ioJob = Job()
+    val ioScope = CoroutineScope(Dispatchers.IO + ioJob)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +38,8 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
 
     override fun onDestroy() {
         super.onDestroy()
+        // 取消IO协程，释放资源
+        ioJob.cancel()
         mPresenter.detachView()
     }
 
