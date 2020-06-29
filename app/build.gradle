@@ -61,4 +61,5 @@ dependencies {
     implementation rootProject.ext.dependencies['materialDesign']
     implementation rootProject.ext.dependencies['retrofit']
     implementation rootProject.ext.dependencies['gson']
+    implementation rootProject.ext.dependencies['gsonConverter']
 }

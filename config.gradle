@@ -6,6 +6,7 @@ ext {
             materialDesignVersion  : '1.1.0',
             retrofitVersion        : '2.3.0',
             gsonVersion            : '2.8.6',
+            gsonConverterVersion     : '2.9.0',
     ]
 
     dependencies = [
@@ -15,5 +16,6 @@ ext {
             'materialDesign'   : "com.google.android.material:material:${version.materialDesignVersion}",
             'retrofit'         : "com.squareup.retrofit2:retrofit:${version.retrofitVersion}",
             'gson'             : "com.google.code.gson:gson:${version.gsonVersion}",
+            'gsonConverter'      : "com.squareup.retrofit2:converter-gson:${version.gsonConverterVersion}",
     ]
 }
