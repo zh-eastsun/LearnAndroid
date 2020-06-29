@@ -60,4 +60,5 @@ dependencies {
     implementation rootProject.ext.dependencies['constraintLayout']
     implementation rootProject.ext.dependencies['materialDesign']
     implementation rootProject.ext.dependencies['retrofit']
+    implementation rootProject.ext.dependencies['gson']
 }

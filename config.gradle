@@ -5,6 +5,7 @@ ext {
             constraintLayoutVersion: '2.0.0-beta6',
             materialDesignVersion  : '1.1.0',
             retrofitVersion        : '2.3.0',
+            gsonVersion            : '2.8.6',
     ]
 
     dependencies = [
@@ -13,5 +14,6 @@ ext {
             'constraintLayout' : "androidx.constraintlayout:constraintlayout:${version.constraintLayoutVersion}",
             'materialDesign'   : "com.google.android.material:material:${version.materialDesignVersion}",
             'retrofit'         : "com.squareup.retrofit2:retrofit:${version.retrofitVersion}",
+            'gson'             : "com.google.code.gson:gson:${version.gsonVersion}",
     ]
 }
