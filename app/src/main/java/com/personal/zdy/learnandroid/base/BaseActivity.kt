@@ -13,7 +13,7 @@ import kotlinx.coroutines.*
  * @author zhangdongyang
  * @date 2020/04/14
  */
-abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView ,CoroutineScope by MainScope(){
+abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
 
     lateinit var baseDialog: AlertDialog
     lateinit var mPresenter: P
@@ -59,7 +59,6 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView ,Corout
     override fun showLoadingDialog(title: String, tip: String) {
         baseDialog = AlertDialog.Builder(this)
             .setCancelable(false)
-            .setIcon(R.drawable.ic_launcher_background)
             .setTitle(title)
             .setMessage(tip)
             .create()
