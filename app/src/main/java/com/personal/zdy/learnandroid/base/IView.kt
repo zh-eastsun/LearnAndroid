@@ -5,7 +5,8 @@ package com.personal.zdy.learnandroid.base
  * @date 2020/04/14
  */
 interface IView {
-    fun showLoadingDialog(title: String, tip: String)
+    fun showLoadingDialog()
     fun showTipDialog(title: String, tip: String)
-    fun hideDialog()
+    fun hideTipDialog()
+    fun hideLoadingDialog()
 }

@@ -36,7 +36,7 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
 
         // 登录按钮逻辑
         btn_login.setOnClickListener {
-            mPresenter.login()
+            mPresenter.login(input_account.text.toString(), input_password.text.toString())
         }
     }
 

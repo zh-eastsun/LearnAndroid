@@ -7,7 +7,10 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     useLibrary "org.apache.http.legacy"
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "com.personal.zdy.learnandroid"
         minSdkVersion 21

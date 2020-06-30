@@ -7,7 +7,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.personal.zdy.learnandroid.R
-import kotlinx.coroutines.*
+import com.personal.zdy.learnandroid.view.LoadingDialog
 
 /**
  * @author zhangdongyang
@@ -16,6 +16,7 @@ import kotlinx.coroutines.*
 abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
 
     lateinit var baseDialog: AlertDialog
+    lateinit var loadingDialog: LoadingDialog
     lateinit var mPresenter: P
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,26 +53,28 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
 
     abstract fun initLayout(): Int
 
-    override fun hideDialog() {
+    override fun hideTipDialog() {
         if (baseDialog.isShowing) baseDialog.dismiss()
     }
 
-    override fun showLoadingDialog(title: String, tip: String) {
-        baseDialog = AlertDialog.Builder(this)
-            .setCancelable(false)
-            .setTitle(title)
-            .setMessage(tip)
-            .create()
-        baseDialog.show()
+    override fun hideLoadingDialog() {
+        if (loadingDialog.isShowing) loadingDialog.dismiss()
+    }
+
+    override fun showLoadingDialog() {
+        loadingDialog = LoadingDialog(this)
+        loadingDialog.show()
     }
 
     override fun showTipDialog(title: String, tip: String) {
         baseDialog = AlertDialog.Builder(this)
             .setCancelable(true)
+            .setTitle(title)
+            .setMessage(tip)
             .setPositiveButton(
                 R.string.positive_button_text
             ) { _: DialogInterface, _: Int ->
-                hideDialog()
+                hideTipDialog()
             }
             .create()
         baseDialog.show()

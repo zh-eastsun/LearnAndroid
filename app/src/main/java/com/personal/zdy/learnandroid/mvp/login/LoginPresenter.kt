@@ -3,6 +3,18 @@ package com.personal.zdy.learnandroid.mvp.login
 import com.personal.zdy.learnandroid.base.BasePresenter
 import com.personal.zdy.learnandroid.base.IPresenter
 import com.personal.zdy.learnandroid.base.IView
+import com.personal.zdy.learnandroid.bean.User
+import com.personal.zdy.learnandroid.net.LoginApi
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.POST
 
 /**
  * Login业务P层逻辑
@@ -10,14 +22,46 @@ import com.personal.zdy.learnandroid.base.IView
  * @author zhangdongyang
  * @date 2020/04/20
  */
-class LoginPresenter : BasePresenter(){
+class LoginPresenter : BasePresenter() {
 
-    fun login(){
+    /**
+     * 登录
+     *
+     * @param username 用户名
+     * @param password 密码
+     * @return
+     */
+    fun login(username: String, password: String) {
+        view?.showLoadingDialog()
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://www.wanandroid.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val request = retrofit.create(LoginApi::class.java)
+        val call = request.login(username, password)
+        call.enqueue(object : Callback<User> {
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                uiScope.launch {
+                    view?.showTipDialog("注意", "登录失败")
+                    view?.hideLoadingDialog()
+                }
+            }
 
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                uiScope.launch {
+                    if (response.body()?.errorCode == 0) {
+                        view?.showTipDialog("注意", "登录成功")
+                        view?.hideLoadingDialog()
+                    } else {
+                        view?.showTipDialog("注意", "密码错误")
+                        view?.hideLoadingDialog()
+                    }
+                }
+            }
+        })
     }
 
-    fun registered(){
-        view?.hideDialog()
+    fun registered() {
     }
 
 }

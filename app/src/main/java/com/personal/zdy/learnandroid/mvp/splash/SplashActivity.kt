@@ -5,7 +5,6 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.personal.zdy.learnandroid.R
 import com.personal.zdy.learnandroid.base.BaseActivity
-import com.personal.zdy.learnandroid.base.IView
 import com.personal.zdy.learnandroid.mvp.login.LoginActivity
 import com.personal.zdy.learnandroid.util.ImageUtils
 import kotlinx.android.synthetic.main.activity_splash.*
