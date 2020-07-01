@@ -1,7 +1,9 @@
 package com.personal.zdy.learnandroid.mvp.login
 
+import android.Manifest
 import com.personal.zdy.learnandroid.R
 import com.personal.zdy.learnandroid.base.BaseActivity
+import com.personal.zdy.learnandroid.base.WRITE_STORAGE_PERMISSION_CODE
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
@@ -36,6 +38,10 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
 
         // 登录按钮逻辑
         btn_login.setOnClickListener {
+            requestPermission(
+                this, Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                WRITE_STORAGE_PERMISSION_CODE
+            )
             mPresenter.login(input_account.text.toString(), input_password.text.toString())
         }
     }
