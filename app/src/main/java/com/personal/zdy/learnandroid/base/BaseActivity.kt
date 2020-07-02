@@ -1,17 +1,17 @@
 package com.personal.zdy.learnandroid.base
 
-import android.content.Context
+import android.Manifest
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.personal.zdy.learnandroid.R
+import com.personal.zdy.learnandroid.util.WRITE_STORAGE_PERMISSION_CODE
 import com.personal.zdy.learnandroid.view.LoadingDialog
 
 /**
@@ -41,6 +41,7 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
         mPresenter.detachView()
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -49,10 +50,13 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
         when (requestCode) {
             WRITE_STORAGE_PERMISSION_CODE ->
                 if (grantResults.isNotEmpty() && grantResults.first() == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "您以授权读写文件", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "您已授权读写文件", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "该权限为应用必要权限，为了保证您的正常使用，请授予该权限", Toast.LENGTH_SHORT).show()
-                    requestPermission(this, permissions.first(), grantResults.first())
+                    requestPermissions(
+                        arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                        WRITE_STORAGE_PERMISSION_CODE
+                    )
                 }
         }
     }
@@ -100,18 +104,4 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
             .create()
         baseDialog.show()
     }
-
-    fun requestPermission(context: Context, permission: String, requestCode: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(
-                    context,
-                    permission
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(this, arrayOf(permission), requestCode)
-            }
-        }
-    }
 }
-
-const val WRITE_STORAGE_PERMISSION_CODE = 0x0000001

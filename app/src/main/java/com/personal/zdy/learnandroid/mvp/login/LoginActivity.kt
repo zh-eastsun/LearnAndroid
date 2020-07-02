@@ -1,9 +1,10 @@
 package com.personal.zdy.learnandroid.mvp.login
 
 import android.Manifest
+import android.os.Build
 import com.personal.zdy.learnandroid.R
 import com.personal.zdy.learnandroid.base.BaseActivity
-import com.personal.zdy.learnandroid.base.WRITE_STORAGE_PERMISSION_CODE
+import com.personal.zdy.learnandroid.util.WRITE_STORAGE_PERMISSION_CODE
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
@@ -18,7 +19,12 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
     }
 
     override fun initData() {
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            com.personal.zdy.learnandroid.util.requestPermissions(
+                this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                WRITE_STORAGE_PERMISSION_CODE
+            )
+        }
     }
 
     override fun initView() {
@@ -38,10 +44,6 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
 
         // 登录按钮逻辑
         btn_login.setOnClickListener {
-            requestPermission(
-                this, Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                WRITE_STORAGE_PERMISSION_CODE
-            )
             mPresenter.login(input_account.text.toString(), input_password.text.toString())
         }
     }
