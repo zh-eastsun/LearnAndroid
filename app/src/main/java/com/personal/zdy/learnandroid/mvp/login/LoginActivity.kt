@@ -15,11 +15,11 @@ import kotlinx.android.synthetic.main.activity_login.*
  */
 class LoginActivity : BaseActivity<LoginPresenter>() {
     override fun onBindPresenter(): LoginPresenter {
-        return LoginPresenter()
+        return LoginPresenter(this)
     }
 
     override fun initData() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= 23) {
             com.personal.zdy.learnandroid.util.requestPermissions(
                 this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 WRITE_STORAGE_PERMISSION_CODE

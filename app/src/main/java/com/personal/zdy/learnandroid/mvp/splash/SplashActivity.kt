@@ -65,6 +65,6 @@ class SplashActivity : BaseActivity<SplashPresenter>() {
     }
 
     override fun onBindPresenter(): SplashPresenter {
-        return SplashPresenter()
+        return SplashPresenter(this)
     }
 }

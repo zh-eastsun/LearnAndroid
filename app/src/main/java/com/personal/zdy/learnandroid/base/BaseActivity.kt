@@ -1,6 +1,5 @@
 package com.personal.zdy.learnandroid.base
 
-import android.Manifest
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
@@ -52,11 +51,7 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
                 if (grantResults.isNotEmpty() && grantResults.first() == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(this, "您已授权读写文件", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this, "该权限为应用必要权限，为了保证您的正常使用，请授予该权限", Toast.LENGTH_SHORT).show()
-                    requestPermissions(
-                        arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                        WRITE_STORAGE_PERMISSION_CODE
-                    )
+                    showTipDialog("Warning","存储权限是程序运行的必要权限\n请您授予..")
                 }
         }
     }

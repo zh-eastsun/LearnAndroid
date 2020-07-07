@@ -1,4 +1,4 @@
-package com.personal.zdy.learnandroid.net
+package com.personal.zdy.learnandroid.net.login
 
 import com.personal.zdy.learnandroid.bean.User
 import retrofit2.Call
