@@ -1,4 +1,3 @@
-include ':base_lib'
 include ':common'
 rootProject.name='LearnAndroid'
 include ':app'

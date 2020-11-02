@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Love Android</string>
-    <string name="positive_button_text">确定</string>
     <string name="app_version">1.0</string>
     <string name="hint_input_account">请输入账号</string>
     <string name="hint_input_password">请输入密码</string>

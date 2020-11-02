@@ -13,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.personal.zdy.learnandroid"
+        applicationId "com.zdy.application.learnandroid"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
