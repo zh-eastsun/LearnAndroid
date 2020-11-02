@@ -1,4 +1,4 @@
-package com.personal.zdy.learnandroid.base
+package com.zdy.application.base
 
 /**
  * @author zhangdongyang

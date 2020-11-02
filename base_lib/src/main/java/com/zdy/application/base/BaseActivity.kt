@@ -1,4 +1,4 @@
-package com.personal.zdy.learnandroid.base
+package com.zdy.application.base
 
 import android.content.DialogInterface
 import android.content.pm.PackageManager
@@ -10,7 +10,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.personal.zdy.learnandroid.R
-import com.personal.zdy.learnandroid.util.WRITE_STORAGE_PERMISSION_CODE
+import com.zdy.applicaion.common.util.WRITE_STORAGE_PERMISSION_CODE
 import com.personal.zdy.learnandroid.view.LoadingDialog
 
 /**

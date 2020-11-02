@@ -4,10 +4,9 @@ import android.content.Intent
 import android.view.View
 import com.bumptech.glide.Glide
 import com.personal.zdy.learnandroid.R
-import com.personal.zdy.learnandroid.base.BaseActivity
+import com.zdy.application.base.BaseActivity
 import com.personal.zdy.learnandroid.mvp.login.LoginActivity
-import com.personal.zdy.learnandroid.util.ImageUtils
-import kotlinx.android.synthetic.main.activity_splash.*
+import com.zdy.applicaion.common.util.ImageUtils
 import kotlinx.coroutines.*
 import kotlinx.coroutines.GlobalScope
 import java.util.*

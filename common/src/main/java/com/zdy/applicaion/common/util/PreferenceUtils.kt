@@ -1,4 +1,4 @@
-package com.personal.zdy.learnandroid.util
+package com.zdy.applicaion.common.util
 
 import android.content.Context
 

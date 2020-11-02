@@ -1,9 +1,9 @@
-package com.personal.zdy.learnandroid.base
+package com.zdy.application.base
 
 import android.app.Application
 import android.content.Context
 import com.personal.zdy.learnandroid.R
-import com.personal.zdy.learnandroid.util.LogUtil
+import com.zdy.applicaion.common.util.LogUtil
 
 /**
  * @author zhangdongyang

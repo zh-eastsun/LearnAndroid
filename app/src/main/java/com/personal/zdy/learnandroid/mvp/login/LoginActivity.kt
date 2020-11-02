@@ -3,9 +3,8 @@ package com.personal.zdy.learnandroid.mvp.login
 import android.Manifest
 import android.os.Build
 import com.personal.zdy.learnandroid.R
-import com.personal.zdy.learnandroid.base.BaseActivity
-import com.personal.zdy.learnandroid.util.WRITE_STORAGE_PERMISSION_CODE
-import kotlinx.android.synthetic.main.activity_login.*
+import com.zdy.application.base.BaseActivity
+import com.zdy.applicaion.common.util.WRITE_STORAGE_PERMISSION_CODE
 
 /**
  * Login业务View层逻辑
@@ -20,7 +19,7 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
 
     override fun initData() {
         if (Build.VERSION.SDK_INT >= 23) {
-            com.personal.zdy.learnandroid.util.requestPermissions(
+            com.zdy.applicaion.common.util.requestPermissions(
                 this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 WRITE_STORAGE_PERMISSION_CODE
             )

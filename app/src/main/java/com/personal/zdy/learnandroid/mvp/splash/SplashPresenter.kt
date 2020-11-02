@@ -1,8 +1,8 @@
 package com.personal.zdy.learnandroid.mvp.splash
 
 import android.content.Context
-import com.personal.zdy.learnandroid.base.BasePresenter
-import com.personal.zdy.learnandroid.base.IPresenter
+import com.zdy.application.base.BasePresenter
+import com.zdy.application.base.IPresenter
 
 /**
  * @author zhangdongyang

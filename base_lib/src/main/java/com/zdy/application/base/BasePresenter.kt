@@ -1,6 +1,5 @@
-package com.personal.zdy.learnandroid.base
+package com.zdy.application.base
 
-import android.content.Context
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

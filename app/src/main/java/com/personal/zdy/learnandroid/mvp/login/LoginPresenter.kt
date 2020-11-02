@@ -3,12 +3,11 @@ package com.personal.zdy.learnandroid.mvp.login
 import android.Manifest
 import android.app.Activity
 import android.content.Context
-import com.personal.zdy.learnandroid.base.BasePresenter
+import com.zdy.application.base.BasePresenter
 import com.personal.zdy.learnandroid.bean.User
 import com.personal.zdy.learnandroid.net.login.LoginApi
-import com.personal.zdy.learnandroid.util.PreferenceUtils
-import com.personal.zdy.learnandroid.util.hasPermission
-import kotlinx.coroutines.launch
+import com.zdy.applicaion.common.util.PreferenceUtils
+import com.zdy.applicaion.common.util.hasPermission
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
