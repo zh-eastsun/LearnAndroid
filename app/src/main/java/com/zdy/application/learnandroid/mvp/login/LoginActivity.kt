@@ -44,7 +44,14 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
 
         // 登录按钮逻辑
         btn_login.setOnClickListener {
-            mPresenter.login(input_account.text.toString(), input_password.text.toString())
+            showLoadingDialog()
+            mPresenter.login(input_account.text.toString(), input_password.text.toString(), {
+                showTipDialog("注意", "登录失败")
+                hideLoadingDialog()
+            }, {
+                showTipDialog("注意", "登录成功")
+                hideLoadingDialog()
+            })
         }
     }
 

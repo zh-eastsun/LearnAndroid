@@ -30,8 +30,7 @@ class LoginPresenter(val context: Context) : BasePresenter() {
      * @param password 密码
      * @return
      */
-    fun login(username: String, password: String) {
-        view?.showLoadingDialog()
+    fun login(username: String, password: String, loginSuccess: () -> Unit, loginFail: () -> Unit) {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://www.wanandroid.com/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -41,16 +40,18 @@ class LoginPresenter(val context: Context) : BasePresenter() {
         call.enqueue(object : Callback<User> {
             override fun onFailure(call: Call<User>, t: Throwable) {
                 uiScope.launch {
-                    view?.showTipDialog("注意", "登录失败")
-                    view?.hideLoadingDialog()
+                    // 调用失败的回调逻辑
+                    loginFail()
                 }
             }
 
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 uiScope.launch {
                     if (response.body()?.errorCode == 0) {
-                        view?.showTipDialog("注意", "登录成功")
-                        view?.hideLoadingDialog()
+                        // 调用成功的回调逻辑
+                        loginSuccess()
+
+                        // 记录用户的账号和密码
                         val user = response.body()
                         if (hasPermission(
                                 view as Activity,
@@ -68,7 +69,7 @@ class LoginPresenter(val context: Context) : BasePresenter() {
                                 user.data.password
                             )
                             PreferenceUtils.putString(
-                                context,PreferenceUtils.COOKIES_KEY,
+                                context, PreferenceUtils.COOKIES_KEY,
                                 user.data.token
                             )
                         }
