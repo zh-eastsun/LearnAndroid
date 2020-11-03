@@ -40,6 +40,7 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
         // 注册按钮逻辑
         btn_register.setOnClickListener {
             mPresenter.registered()
+            // todo 注册逻辑暂未完成
         }
 
         // 登录按钮逻辑

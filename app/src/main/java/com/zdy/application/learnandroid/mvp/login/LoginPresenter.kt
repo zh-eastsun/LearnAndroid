@@ -88,6 +88,7 @@ class LoginPresenter(val context: Context) : BasePresenter() {
     }
 
     fun registered() {
+        // todo 注册逻辑暂未完成
     }
 
 }
