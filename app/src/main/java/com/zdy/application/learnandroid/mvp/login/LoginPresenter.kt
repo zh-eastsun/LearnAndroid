@@ -30,7 +30,13 @@ class LoginPresenter(val context: Context) : BasePresenter() {
      * @param password 密码
      * @return
      */
-    fun login(username: String, password: String, loginSuccess: () -> Unit, loginFail: () -> Unit) {
+    fun login(
+        username: String,
+        password: String,
+        loginSuccess: () -> Unit,
+        loginFail: () -> Unit,
+        wrongPassword: () -> Unit
+    ) {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://www.wanandroid.com/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -74,8 +80,7 @@ class LoginPresenter(val context: Context) : BasePresenter() {
                             )
                         }
                     } else {
-                        view?.showTipDialog("注意", "密码错误")
-                        view?.hideLoadingDialog()
+                        wrongPassword()
                     }
                 }
             }
