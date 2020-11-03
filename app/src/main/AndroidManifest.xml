@@ -3,7 +3,7 @@
     package="com.zdy.application.learnandroid">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name="com.zdy.application.common.base.BaseApplication"
@@ -22,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".mvp.main.MainActivity"></activity>
     </application>
 
 </manifest>

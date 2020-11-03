@@ -11,7 +11,7 @@ class MainActivity : BaseActivity<MainPresenter>() {
         R.layout.activity_main
 
     override fun initData() {
-        TODO("Not yet implemented")
+        // TODO("Not yet implemented")
     }
 
     override fun initView() {

@@ -54,9 +54,6 @@ class LoginPresenter(val context: Context) : BasePresenter() {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 uiScope.launch {
                     if (response.body()?.errorCode == 0) {
-                        // 调用成功的回调逻辑
-                        loginSuccess()
-
                         // 记录用户的账号和密码
                         val user = response.body()
                         if (hasPermission(
@@ -79,6 +76,8 @@ class LoginPresenter(val context: Context) : BasePresenter() {
                                 user.data.token
                             )
                         }
+                        // 调用成功的回调逻辑
+                        loginSuccess()
                     } else {
                         wrongPassword()
                     }
