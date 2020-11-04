@@ -48,6 +48,7 @@ class LoginPresenter(val context: Context) : BasePresenter() {
                 uiScope.launch {
                     // 调用失败的回调逻辑
                     loginFail()
+                    PreferenceUtils.putBoolean(context, PreferenceUtils.IS_LOGINED, false)
                 }
             }
 
@@ -75,11 +76,18 @@ class LoginPresenter(val context: Context) : BasePresenter() {
                                 context, PreferenceUtils.COOKIES_KEY,
                                 user.data.token
                             )
+                            PreferenceUtils.putBoolean(
+                                context,
+                                PreferenceUtils.IS_LOGINED,
+                                true
+                            )
                         }
                         // 调用成功的回调逻辑
                         loginSuccess()
                     } else {
+                        // 调用密码错误的回调逻辑
                         wrongPassword()
+                        PreferenceUtils.putBoolean(context, PreferenceUtils.IS_LOGINED, false)
                     }
                 }
             }
