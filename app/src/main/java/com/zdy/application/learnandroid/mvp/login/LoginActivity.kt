@@ -51,7 +51,8 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
                 input_password.text.toString(),
                 {
                     // 登陆成功的函数回调
-
+                    hideLoadingDialog()
+                    finish()
                 },
                 {
                     // 登陆失败的函数回调

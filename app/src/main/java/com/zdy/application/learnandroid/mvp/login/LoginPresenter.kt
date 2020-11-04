@@ -7,7 +7,6 @@ import android.content.Intent
 import android.os.Bundle
 import com.zdy.application.common.base.BasePresenter
 import com.zdy.application.common.base.Origin
-import com.zdy.application.common.base.Origin.LOGIN_ACTIVITY_PATH
 import com.zdy.application.learnandroid.bean.User
 import com.zdy.application.learnandroid.net.login.LoginApi
 import com.zdy.application.common.util.PreferenceUtils
@@ -27,10 +26,6 @@ import retrofit2.converter.gson.GsonConverterFactory
  * @date 2020/04/20
  */
 class LoginPresenter(val context: Context) : BasePresenter() {
-
-    companion object {
-        val ORIGIN_PATH = LOGIN_ACTIVITY_PATH
-    }
 
     /**
      * 登录
@@ -95,9 +90,10 @@ class LoginPresenter(val context: Context) : BasePresenter() {
                         loginSuccess()
                         // 传递源
                         val loginBundle = Bundle()
-                        loginBundle.putString(Origin.BUNDLE_KEY, ORIGIN_PATH)
+                        loginBundle.putString(Origin.BUNDLE_KEY, Origin.LOGIN_ACTIVITY_PATH)
                         val intent = Intent(context, MainActivity::class.java)
-                        context.startActivity(intent, loginBundle)
+                        intent.putExtras(loginBundle)
+                        context.startActivity(intent)
                     } else {
                         // 调用密码错误的回调逻辑
                         wrongPassword()
