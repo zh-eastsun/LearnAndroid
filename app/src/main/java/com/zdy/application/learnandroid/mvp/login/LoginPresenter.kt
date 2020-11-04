@@ -3,11 +3,16 @@ package com.zdy.application.learnandroid.mvp.login
 import android.Manifest
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import com.zdy.application.common.base.BasePresenter
+import com.zdy.application.common.base.Origin
+import com.zdy.application.common.base.Origin.LOGIN_ACTIVITY_PATH
 import com.zdy.application.learnandroid.bean.User
 import com.zdy.application.learnandroid.net.login.LoginApi
 import com.zdy.application.common.util.PreferenceUtils
 import com.zdy.application.common.util.hasPermission
+import com.zdy.application.learnandroid.mvp.main.MainActivity
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,6 +27,10 @@ import retrofit2.converter.gson.GsonConverterFactory
  * @date 2020/04/20
  */
 class LoginPresenter(val context: Context) : BasePresenter() {
+
+    companion object {
+        val ORIGIN_PATH = LOGIN_ACTIVITY_PATH
+    }
 
     /**
      * 登录
@@ -84,6 +93,11 @@ class LoginPresenter(val context: Context) : BasePresenter() {
                         }
                         // 调用成功的回调逻辑
                         loginSuccess()
+                        // 传递源
+                        val loginBundle = Bundle()
+                        loginBundle.putString(Origin.BUNDLE_KEY, ORIGIN_PATH)
+                        val intent = Intent(context, MainActivity::class.java)
+                        context.startActivity(intent, loginBundle)
                     } else {
                         // 调用密码错误的回调逻辑
                         wrongPassword()

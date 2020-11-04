@@ -1,12 +1,10 @@
 package com.zdy.application.learnandroid.mvp.login
 
 import android.Manifest
-import android.content.Intent
 import android.os.Build
 import com.zdy.application.learnandroid.R
 import com.zdy.application.common.base.BaseActivity
 import com.zdy.application.common.util.WRITE_STORAGE_PERMISSION_CODE
-import com.zdy.application.learnandroid.mvp.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
@@ -16,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_login.*
  * @date 2020/04/20
  */
 class LoginActivity : BaseActivity<LoginPresenter>() {
+
     override fun onBindPresenter(): LoginPresenter {
         return LoginPresenter(this)
     }
@@ -52,10 +51,7 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
                 input_password.text.toString(),
                 {
                     // 登陆成功的函数回调
-                    showTipDialog("注意", "登录成功")
-                    hideLoadingDialog()
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+
                 },
                 {
                     // 登陆失败的函数回调

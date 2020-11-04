@@ -18,12 +18,12 @@ object PreferenceUtils {
 
     fun putString(context: Context, key: String, data: String) {
         context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit().putString(key, data)
-            .apply()
+            .commit()
     }
 
     fun putBoolean(context: Context, key: String, data: Boolean) {
         context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).edit().putBoolean(key, data)
-            .apply()
+            .commit()
     }
 
     fun getString(context: Context, key: String) {
