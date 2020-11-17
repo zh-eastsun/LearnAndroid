@@ -12,7 +12,9 @@ import com.zdy.application.learnandroid.net.login.LoginApi
 import com.zdy.application.common.util.PreferenceUtils
 import com.zdy.application.common.util.hasPermission
 import com.zdy.application.learnandroid.mvp.main.MainActivity
+import com.zdy.application.learnandroid.net.interceptor.SaveCookiesInterceptor
 import kotlinx.coroutines.launch
+import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,10 +43,16 @@ class LoginPresenter(val context: Context) : BasePresenter() {
         loginFail: () -> Unit,
         wrongPassword: () -> Unit
     ) {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://www.wanandroid.com/")
-            .addConverterFactory(GsonConverterFactory.create())
+        val client = OkHttpClient.Builder()
+            .addInterceptor(SaveCookiesInterceptor(context))
             .build()
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl(LoginApi.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+
         val request = retrofit.create(LoginApi::class.java)
         val call = request.login(username, password)
         call.enqueue(object : Callback<User> {
