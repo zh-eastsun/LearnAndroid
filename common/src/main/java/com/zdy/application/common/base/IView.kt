@@ -6,7 +6,7 @@ package com.zdy.application.common.base
  */
 interface IView {
     fun showLoadingDialog()
-    fun showTipDialog(title: String, tip: String)
+    fun showTipDialog(title: String = "", tip: String)
     fun hideTipDialog()
     fun hideLoadingDialog()
 }
