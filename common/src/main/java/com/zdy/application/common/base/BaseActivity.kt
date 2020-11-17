@@ -51,17 +51,15 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
                 if (grantResults.isNotEmpty() && grantResults.first() == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(this, "您已授权读写文件", Toast.LENGTH_SHORT).show()
                 } else {
-                    showTipDialog("Warning","存储权限是程序运行的必要权限\n请您授予..")
+                    showTipDialog("Warning", "存储权限是程序运行的必要权限\n请您授予..")
                 }
         }
     }
 
     open fun initView() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            val localLayoutParams = window.attributes
-            localLayoutParams.flags =
-                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or localLayoutParams.flags
-        }
+        val localLayoutParams = window.attributes
+        localLayoutParams.flags =
+            WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or localLayoutParams.flags
     }
 
     open fun doWork() {}
