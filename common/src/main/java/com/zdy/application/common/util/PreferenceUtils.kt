@@ -26,12 +26,10 @@ object PreferenceUtils {
             .apply()
     }
 
-    fun getString(context: Context, key: String) {
+    fun getString(context: Context, key: String): String? =
         context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getString(key, "")
-    }
 
-    fun getBoolean(context: Context, key: String) {
+    fun getBoolean(context: Context, key: String): Boolean? =
         context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE).getBoolean(key, false)
-    }
 
 }
