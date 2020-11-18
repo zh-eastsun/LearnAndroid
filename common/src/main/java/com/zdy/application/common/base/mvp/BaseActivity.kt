@@ -1,4 +1,4 @@
-package com.zdy.application.common.base
+package com.zdy.application.common.base.mvp
 
 import android.content.DialogInterface
 import android.content.pm.PackageManager
