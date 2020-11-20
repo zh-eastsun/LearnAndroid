@@ -25,7 +25,7 @@ abstract class BaseView : AppCompatActivity() {
     lateinit var loadingDialog: LoadingDialog
 
     abstract fun otherOperate()
-    abstract fun initLayoutRes(): Int
+    abstract fun setContentView()
 
     open fun observeData() {}                    // 订阅被观察者的数据
     open fun initViewModels() {}                 // 初始化viewModel
@@ -66,7 +66,7 @@ abstract class BaseView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         beforeSetContentView()
-        setContentView(initLayoutRes())
+        setContentView()
         initViewModels()
         observeData()
         otherOperate()

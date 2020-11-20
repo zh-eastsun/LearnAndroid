@@ -1,121 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <FrameLayout
-        android:id="@+id/fragment_content"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+    <data>
+
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/fragment_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginVertical="5dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:src="@drawable/home_icon" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="3dp"
-                android:gravity="center_horizontal"
-                android:text="@string/home_label_text"
-                android:textColor="@color/sugar_green"
-                android:textSize="12dp" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/home_icon" />
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/home_label_text"
+                    android:textColor="@color/sugar_green"
+                    android:textSize="12dp" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginVertical="5dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            </LinearLayout>
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:src="@drawable/system_icon" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="3dp"
-                android:gravity="center_horizontal"
-                android:text="@string/system_label_text"
-                android:textColor="@color/sugar_green"
-                android:textSize="12dp" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/system_icon" />
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/system_label_text"
+                    android:textColor="@color/sugar_green"
+                    android:textSize="12dp" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginVertical="5dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            </LinearLayout>
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:src="@drawable/square_icon" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="3dp"
-                android:gravity="center_horizontal"
-                android:text="@string/square_label_text"
-                android:textColor="@color/sugar_green"
-                android:textSize="12dp" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/square_icon" />
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/square_label_text"
+                    android:textColor="@color/sugar_green"
+                    android:textSize="12dp" />
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginVertical="5dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:src="@drawable/personal_icon" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/personal_icon" />
 
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="3dp"
-                android:gravity="center_horizontal"
-                android:text="@string/personal_label_text"
-                android:textColor="@color/sugar_green"
-                android:textSize="12dp" />
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/personal_label_text"
+                    android:textColor="@color/sugar_green"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>
