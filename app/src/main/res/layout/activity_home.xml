@@ -32,7 +32,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/home_icon" />
+                    android:src="@drawable/home_icon_unselected" />
 
                 <TextView
                     android:layout_width="30dp"
@@ -57,7 +57,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/system_icon" />
+                    android:src="@drawable/system_icon_unselected" />
 
                 <TextView
                     android:layout_width="30dp"
@@ -82,7 +82,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/square_icon" />
+                    android:src="@drawable/square_icon_unselected" />
 
                 <TextView
                     android:layout_width="30dp"
@@ -108,7 +108,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/personal_icon" />
+                    android:src="@drawable/personal_icon_unselected" />
 
                 <TextView
                     android:layout_width="30dp"
