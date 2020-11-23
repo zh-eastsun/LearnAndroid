@@ -3,7 +3,7 @@ package com.zdy.application.learnandroid.mvp.login
 import android.Manifest
 import android.os.Build
 import com.zdy.application.learnandroid.R
-import com.zdy.application.common.base.BaseActivity
+import com.zdy.application.common.base.mvp.BaseActivity
 import com.zdy.application.common.util.WRITE_STORAGE_PERMISSION_CODE
 import kotlinx.android.synthetic.main.activity_login.*
 

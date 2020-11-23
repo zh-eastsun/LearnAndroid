@@ -5,13 +5,14 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.zdy.application.common.base.BasePresenter
+import com.zdy.application.common.base.mvp.BasePresenter
 import com.zdy.application.common.base.Origin
 import com.zdy.application.learnandroid.bean.User
 import com.zdy.application.learnandroid.net.login.LoginApi
 import com.zdy.application.common.util.PreferenceUtils
 import com.zdy.application.common.util.hasPermission
 import com.zdy.application.learnandroid.mvp.main.MainActivity
+import com.zdy.application.learnandroid.mvvm.home.HomeActivity
 import com.zdy.application.learnandroid.net.interceptor.SaveCookiesInterceptor
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
@@ -99,7 +100,7 @@ class LoginPresenter(val context: Context) : BasePresenter() {
                         // 传递源
                         val loginBundle = Bundle()
                         loginBundle.putString(Origin.BUNDLE_KEY, Origin.LOGIN_ACTIVITY_PATH)
-                        val intent = Intent(context, MainActivity::class.java)
+                        val intent = Intent(context, HomeActivity::class.java)
                         intent.putExtras(loginBundle)
                         context.startActivity(intent)
                     } else {
