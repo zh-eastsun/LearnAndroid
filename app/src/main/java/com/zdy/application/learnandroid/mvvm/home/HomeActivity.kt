@@ -18,8 +18,8 @@ class HomeActivity : BaseView() {
         TODO("Not yet implemented")
     }
 
-    override fun setContentView() {
-        DataBindingUtil.setContentView<ActivityHomeBinding>(this, R.layout.activity_home)
+    override fun bindView() {
+        ActivityHomeBinding.inflate(layoutInflater)
     }
 
 }

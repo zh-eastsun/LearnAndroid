@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -25,11 +26,11 @@ abstract class BaseView : AppCompatActivity() {
     lateinit var loadingDialog: LoadingDialog
 
     abstract fun otherOperate()
-    abstract fun setContentView()
+    abstract fun bindView()
 
     open fun observeData() {}                    // 订阅被观察者的数据
     open fun initViewModels() {}                 // 初始化viewModel
-    open fun beforeSetContentView() {}              // 可以在setContentView之前做一些事
+    open fun beforeBindView() {}              // 可以在setContentView之前做一些事
     open fun initWindow() {
         val localLayoutParams = window.attributes
         localLayoutParams.flags =
@@ -65,8 +66,8 @@ abstract class BaseView : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        beforeSetContentView()
-        setContentView()
+        beforeBindView()
+        bindView()
         initViewModels()
         observeData()
         otherOperate()
