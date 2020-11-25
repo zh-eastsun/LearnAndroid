@@ -4,7 +4,7 @@ import android.content.Intent
 import android.view.View
 import com.bumptech.glide.Glide
 import com.zdy.application.learnandroid.R
-import com.zdy.application.common.base.BaseActivity
+import com.zdy.application.common.base.mvp.BaseActivity
 import com.zdy.application.learnandroid.mvp.login.LoginActivity
 import com.zdy.application.common.util.ImageUtils
 import kotlinx.android.synthetic.main.activity_splash.*
