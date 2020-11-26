@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.zdy.application.common.R
+import com.zdy.application.common.base.IView
 import com.zdy.application.common.util.WRITE_STORAGE_PERMISSION_CODE
 import com.zdy.application.common.view.LoadingDialog
 
@@ -20,7 +21,7 @@ import com.zdy.application.common.view.LoadingDialog
  * Date: 11/20/20
  * Time: 11:36 PM
  */
-abstract class BaseView : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), IView {
 
     lateinit var baseDialog: AlertDialog
     lateinit var loadingDialog: LoadingDialog
@@ -36,20 +37,20 @@ abstract class BaseView : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or localLayoutParams.flags
     }
 
-    protected fun hideTipDialog() {
+    override fun hideTipDialog() {
         if (baseDialog.isShowing) baseDialog.dismiss()
     }
 
-    protected fun hideLoadingDialog() {
+    override fun hideLoadingDialog() {
         if (loadingDialog.isShowing) loadingDialog.dismiss()
     }
 
-    protected fun showLoadingDialog() {
+    override fun showLoadingDialog() {
         loadingDialog = LoadingDialog(this)
         loadingDialog.show()
     }
 
-    protected fun showTipDialog(tip: String, title: String = "") {
+    override fun showTipDialog(tip: String, title: String) {
         baseDialog = AlertDialog.Builder(this)
             .setCancelable(true)
             .setTitle(title)

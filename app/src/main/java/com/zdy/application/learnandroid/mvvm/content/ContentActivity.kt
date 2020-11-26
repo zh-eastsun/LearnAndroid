@@ -2,7 +2,7 @@ package com.zdy.application.learnandroid.mvvm.content
 
 import android.view.View
 import androidx.fragment.app.FragmentTransaction
-import com.zdy.application.common.base.mvvm.BaseView
+import com.zdy.application.common.base.mvvm.BaseActivity
 import com.zdy.application.learnandroid.R
 import com.zdy.application.learnandroid.databinding.ActivityContentBinding
 import com.zdy.application.learnandroid.mvvm.home.HomeFragment
@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_content.*
  * Time: 11:52 PM
  */
 
-class ContentActivity : BaseView(), View.OnClickListener {
+class ContentActivity : BaseActivity(), View.OnClickListener {
 
     // 四个不同业务的Fragment
     private var homePageFragment: HomeFragment? = null
