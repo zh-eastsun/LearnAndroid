@@ -19,8 +19,8 @@ import com.zdy.application.common.view.LoadingDialog
  */
 abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
 
-    lateinit var baseDialog: AlertDialog
-    lateinit var loadingDialog: LoadingDialog
+    var baseDialog: AlertDialog? = null
+    var loadingDialog: LoadingDialog? = null
     lateinit var mPresenter: P
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,16 +72,16 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
     abstract fun initLayout(): Int
 
     override fun hideTipDialog() {
-        if (baseDialog.isShowing) baseDialog.dismiss()
+        if (baseDialog != null && baseDialog!!.isShowing) baseDialog?.dismiss()
     }
 
     override fun hideLoadingDialog() {
-        if (loadingDialog.isShowing) loadingDialog.dismiss()
+        if (loadingDialog != null && loadingDialog!!.isShowing) loadingDialog?.dismiss()
     }
 
     override fun showLoadingDialog() {
         loadingDialog = LoadingDialog(this)
-        loadingDialog.show()
+        loadingDialog?.show()
     }
 
     override fun showTipDialog(title: String, tip: String) {
@@ -95,6 +95,6 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
                 hideTipDialog()
             }
             .create()
-        baseDialog.show()
+        baseDialog?.show()
     }
 }
