@@ -15,6 +15,24 @@ import kotlinx.android.synthetic.main.activity_login.*
  */
 class LoginActivity : BaseActivity<LoginPresenter>() {
 
+    private val loginSuccessTask = {
+        // 登陆成功的函数回调
+        hideLoadingDialog()
+        finish()
+    }
+
+    private val loginFailTask = {
+        // 登陆失败的函数回调
+        showTipDialog("注意", "登录失败")
+        hideLoadingDialog()
+    }
+
+    private val passwordWrongTask = {
+        // 密码错误的函数回调
+        showTipDialog("注意", "密码错误")
+        hideLoadingDialog()
+    }
+
     override fun onBindPresenter(): LoginPresenter {
         return LoginPresenter(this)
     }
@@ -26,6 +44,9 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
                 WRITE_STORAGE_PERMISSION_CODE
             )
         }
+
+        showLoadingDialog()
+        mPresenter.autoLogin(loginSuccessTask, loginFailTask, passwordWrongTask)
     }
 
     override fun initView() {
@@ -47,23 +68,13 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
         // 登录按钮逻辑
         btn_login.setOnClickListener {
             showLoadingDialog()
-            mPresenter.login(input_account.text.toString(),
+            mPresenter.login(
+                input_account.text.toString(),
                 input_password.text.toString(),
-                {
-                    // 登陆成功的函数回调
-                    hideLoadingDialog()
-                    finish()
-                },
-                {
-                    // 登陆失败的函数回调
-                    showTipDialog("注意", "登录失败")
-                    hideLoadingDialog()
-                },
-                {
-                    // 密码错误的函数回调
-                    showTipDialog("注意", "密码错误")
-                    hideLoadingDialog()
-                })
+                loginSuccessTask,
+                loginFailTask,
+                passwordWrongTask
+            )
         }
     }
 

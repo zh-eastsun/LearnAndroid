@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.zdy.application.common.base.mvp.BasePresenter
 import com.zdy.application.common.base.Origin
 import com.zdy.application.learnandroid.bean.User
@@ -30,10 +31,33 @@ import retrofit2.converter.gson.GsonConverterFactory
 class LoginPresenter(val context: Context) : BasePresenter() {
 
     /**
+     * 自动登陆
+     *
+     * @param loginSuccess  登陆成功
+     * @param loginFail     登陆失败
+     * @param wrongPassword 密码错误
+     */
+    fun autoLogin(
+        loginSuccess: () -> Unit,
+        loginFail: () -> Unit,
+        wrongPassword: () -> Unit
+    ) {
+        val userIsLogin = PreferenceUtils.getBoolean(context, PreferenceUtils.IS_LOGINED)
+        if (userIsLogin != null && userIsLogin) {
+            val username = PreferenceUtils.getString(context, PreferenceUtils.USERNAME_KEY)
+            val password = PreferenceUtils.getString(context, PreferenceUtils.PASSWORD_KEY)
+            login(username!!, password!!, loginSuccess, loginFail, wrongPassword)
+        }
+    }
+
+    /**
      * 登录
      *
-     * @param username 用户名
-     * @param password 密码
+     * @param username      用户名
+     * @param password      密码
+     * @param loginSuccess  登陆成功
+     * @param loginFail     登陆失败
+     * @param wrongPassword 密码错误
      * @return
      */
     fun login(
@@ -77,16 +101,16 @@ class LoginPresenter(val context: Context) : BasePresenter() {
                             PreferenceUtils.putString(
                                 context,
                                 PreferenceUtils.USERNAME_KEY,
-                                user?.data!!.username
+                                username
                             )
                             PreferenceUtils.putString(
                                 context,
                                 PreferenceUtils.PASSWORD_KEY,
-                                user.data.password
+                                password
                             )
                             PreferenceUtils.putString(
                                 context, PreferenceUtils.COOKIES_KEY,
-                                user.data.token
+                                user?.data!!.token
                             )
                             PreferenceUtils.putBoolean(
                                 context,
