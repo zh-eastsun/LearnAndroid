@@ -1,6 +1,5 @@
 package com.zdy.application.common.base.mvvm
 
-import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,11 +28,18 @@ abstract class BaseFragment : Fragment(), IView {
         savedInstanceState: Bundle?
     ): View
 
+    protected open fun initView(){}
+    protected open fun observeData(){}
+    protected open fun doWork(){}
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        initView()
+        observeData()
+        doWork()
         return bindView(inflater, container, savedInstanceState)
     }
 
