@@ -1,12 +1,12 @@
 package com.zdy.application.learnandroid.bean
 
 data class User(
-    val `data`: Data,
+    val `data`: UserData,
     val errorCode: Int,
     val errorMsg: String
 )
 
-data class Data(
+data class UserData(
     val admin: Boolean,
     val chapterTops: List<Any>,
     val collectIds: List<Any>,
