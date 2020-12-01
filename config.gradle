@@ -18,6 +18,6 @@ ext {
             'retrofit'          : "com.squareup.retrofit2:retrofit:${version.retrofitVersion}",
             'gson'              : "com.google.code.gson:gson:${version.gsonVersion}",
             'gsonConverter'     : "com.squareup.retrofit2:converter-gson:${version.gsonConverterVersion}",
-            'banner'            : "'com.youth.banner:banner:${version.bannerVersion}"
+            'banner'            : "com.youth.banner:banner:${version.bannerVersion}"
     ]
 }
