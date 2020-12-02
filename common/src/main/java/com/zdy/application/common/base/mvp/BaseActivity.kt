@@ -81,6 +81,7 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
 
     override fun showLoadingDialog() {
         loadingDialog = LoadingDialog(this)
+        loadingDialog?.setCancelable(false)
         loadingDialog?.show()
     }
 
