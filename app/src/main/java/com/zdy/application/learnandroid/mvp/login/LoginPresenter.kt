@@ -38,12 +38,14 @@ class LoginPresenter(val context: Context) : BasePresenter() {
      * @param wrongPassword 密码错误
      */
     fun autoLogin(
+        startLogin: () -> Unit,
         loginSuccess: () -> Unit,
         loginFail: () -> Unit,
         wrongPassword: () -> Unit
     ) {
         val userIsLogin = PreferenceUtils.getBoolean(context, PreferenceUtils.IS_LOGINED)
         if (userIsLogin != null && userIsLogin) {
+            startLogin()
             val username = PreferenceUtils.getString(context, PreferenceUtils.USERNAME_KEY)
             val password = PreferenceUtils.getString(context, PreferenceUtils.PASSWORD_KEY)
             login(username!!, password!!, loginSuccess, loginFail, wrongPassword)

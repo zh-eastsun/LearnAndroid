@@ -4,6 +4,7 @@ import android.Manifest
 import android.os.Build
 import com.zdy.application.learnandroid.R
 import com.zdy.application.common.base.mvp.BaseActivity
+import com.zdy.application.common.util.PreferenceUtils
 import com.zdy.application.common.util.WRITE_STORAGE_PERMISSION_CODE
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -14,6 +15,10 @@ import kotlinx.android.synthetic.main.activity_login.*
  * @date 2020/04/20
  */
 class LoginActivity : BaseActivity<LoginPresenter>() {
+
+    private val startLoginTask = {
+        showLoadingDialog()
+    }
 
     private val loginSuccessTask = {
         // 登陆成功的函数回调
@@ -44,9 +49,16 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
                 WRITE_STORAGE_PERMISSION_CODE
             )
         }
+    }
 
-        showLoadingDialog()
-        mPresenter.autoLogin(loginSuccessTask, loginFailTask, passwordWrongTask)
+    override fun doWork() {
+        super.doWork()
+        mPresenter.autoLogin(
+            startLoginTask,
+            loginSuccessTask,
+            loginFailTask,
+            passwordWrongTask
+        )
     }
 
     override fun initView() {
@@ -75,6 +87,14 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
                 loginFailTask,
                 passwordWrongTask
             )
+        }
+
+        // 如果上次有登陆过需要填充账号和密码输入框
+        val lastUsername = PreferenceUtils.getString(this, PreferenceUtils.USERNAME_KEY)
+        val lastPassword = PreferenceUtils.getString(this, PreferenceUtils.PASSWORD_KEY)
+        if (!lastUsername.isNullOrEmpty() && !lastPassword.isNullOrEmpty()) {
+            input_account.setText(lastUsername)
+            input_password.setText(lastPassword)
         }
     }
 
