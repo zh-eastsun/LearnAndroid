@@ -5,14 +5,14 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import com.zdy.application.common.base.mvp.BasePresenter
 import com.zdy.application.common.base.Origin
 import com.zdy.application.learnandroid.bean.User
-import com.zdy.application.learnandroid.net.login.LoginApi
+import com.zdy.application.learnandroid.net.api.LoginApi
 import com.zdy.application.common.util.PreferenceUtils
 import com.zdy.application.common.util.hasPermission
 import com.zdy.application.learnandroid.mvvm.content.ContentActivity
+import com.zdy.application.learnandroid.net.api.RequestApi
 import com.zdy.application.learnandroid.net.interceptor.SaveCookiesInterceptor
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
@@ -74,7 +74,7 @@ class LoginPresenter(val context: Context) : BasePresenter() {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl(LoginApi.BASE_URL)
+            .baseUrl(RequestApi.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

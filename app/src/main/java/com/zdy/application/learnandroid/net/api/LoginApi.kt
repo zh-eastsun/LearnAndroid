@@ -1,4 +1,4 @@
-package com.zdy.application.learnandroid.net.login
+package com.zdy.application.learnandroid.net.api
 
 import com.zdy.application.learnandroid.bean.User
 import retrofit2.Call
@@ -7,10 +7,6 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface LoginApi {
-
-    companion object {
-        const val BASE_URL = "https://www.wanandroid.com/"
-    }
 
     @FormUrlEncoded
     @POST("user/login")
