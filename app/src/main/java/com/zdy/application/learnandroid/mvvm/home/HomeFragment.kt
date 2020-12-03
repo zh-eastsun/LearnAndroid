@@ -17,6 +17,10 @@ class HomeFragment : BaseFragment() {
 
     private lateinit var binding: FragmentHomeBinding
 
+    override fun initView(){
+
+    }
+
     override fun bindView(
         inflater: LayoutInflater,
         container: ViewGroup?,
