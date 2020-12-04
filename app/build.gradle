@@ -13,6 +13,7 @@ android {
         dataBinding = true
     }
 
+    // Hilt必须开启Java 8
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -78,4 +79,6 @@ dependencies {
     implementation rootProject.ext.dependencies['gson']
     implementation rootProject.ext.dependencies['gsonConverter']
     implementation rootProject.ext.dependencies['banner']
+    implementation rootProject.ext.dependencies['hilt']
+    kapt rootProject.ext.dependencies['hilt-compiler']
 }
