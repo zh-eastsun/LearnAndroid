@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.zdy.application.common.R
 import com.zdy.application.common.base.IView
 import com.zdy.application.common.view.LoadingDialog
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Created by Android Studio.
@@ -28,9 +29,9 @@ abstract class BaseFragment : Fragment(), IView {
         savedInstanceState: Bundle?
     ): View
 
-    protected open fun initView(){}
-    protected open fun observeData(){}
-    protected open fun doWork(){}
+    protected open fun initView() {}
+    protected open fun observeData() {}
+    protected open fun doWork() {}
 
     override fun onCreateView(
         inflater: LayoutInflater,
