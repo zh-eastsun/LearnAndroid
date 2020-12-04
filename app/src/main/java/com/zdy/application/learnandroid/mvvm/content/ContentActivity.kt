@@ -9,7 +9,6 @@ import com.zdy.application.learnandroid.mvvm.home.HomeFragment
 import com.zdy.application.learnandroid.mvvm.personal.PersonalFragment
 import com.zdy.application.learnandroid.mvvm.square.SquareFragment
 import com.zdy.application.learnandroid.mvvm.system.SystemFragment
-import kotlinx.android.synthetic.main.activity_content.*
 
 /**
  * Created by Android Studio.
@@ -47,7 +46,7 @@ class ContentActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    fun initView(){
+    fun initView() {
         binding.homePageLayout.setOnClickListener(this)
         binding.systemPageLayout.setOnClickListener(this)
         binding.squarePageLayout.setOnClickListener(this)
@@ -68,8 +67,8 @@ class ContentActivity : BaseActivity(), View.OnClickListener {
 
         when (index) {
             0 -> {
-                home_page_image.setImageResource(R.drawable.home_icon_selected)
-                home_page_text.setTextColor(resources.getColor(R.color.sugar_blue))
+                binding.homePageImage.setImageResource(R.drawable.home_icon_selected)
+                binding.homePageText.setTextColor(resources.getColor(R.color.sugar_blue))
                 if (homePageFragment == null) {
                     homePageFragment = HomeFragment()
                     fragmentTransaction.add(R.id.fragment_content, homePageFragment!!)
@@ -79,8 +78,8 @@ class ContentActivity : BaseActivity(), View.OnClickListener {
             }
 
             1 -> {
-                system_page_image.setImageResource(R.drawable.system_icon_selected)
-                system_page_text.setTextColor(resources.getColor(R.color.sugar_blue))
+                binding.systemPageImage.setImageResource(R.drawable.system_icon_selected)
+                binding.systemPageText.setTextColor(resources.getColor(R.color.sugar_blue))
                 if (systemPageFragment == null) {
                     systemPageFragment = SystemFragment()
                     fragmentTransaction.add(R.id.fragment_content, systemPageFragment!!)
@@ -90,8 +89,8 @@ class ContentActivity : BaseActivity(), View.OnClickListener {
             }
 
             2 -> {
-                square_page_image.setImageResource(R.drawable.square_icon_selected)
-                square_page_text.setTextColor(resources.getColor(R.color.sugar_blue))
+                binding.squarePageImage.setImageResource(R.drawable.square_icon_selected)
+                binding.squarePageText.setTextColor(resources.getColor(R.color.sugar_blue))
                 if (squarePageFragment == null) {
                     squarePageFragment = SquareFragment()
                     fragmentTransaction.add(R.id.fragment_content, squarePageFragment!!)
@@ -101,8 +100,8 @@ class ContentActivity : BaseActivity(), View.OnClickListener {
             }
 
             3 -> {
-                personal_page_image.setImageResource(R.drawable.personal_icon_selected)
-                personal_page_text.setTextColor(resources.getColor(R.color.sugar_blue))
+                binding.personalPageImage.setImageResource(R.drawable.personal_icon_selected)
+                binding.personalPageText.setTextColor(resources.getColor(R.color.sugar_blue))
                 if (personalPageFragment == null) {
                     personalPageFragment = PersonalFragment()
                     fragmentTransaction.add(R.id.fragment_content, personalPageFragment!!)

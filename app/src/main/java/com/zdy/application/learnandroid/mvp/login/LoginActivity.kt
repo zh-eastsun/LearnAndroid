@@ -2,11 +2,11 @@ package com.zdy.application.learnandroid.mvp.login
 
 import android.Manifest
 import android.os.Build
-import com.zdy.application.learnandroid.R
+import android.view.View
 import com.zdy.application.common.base.mvp.BaseActivity
 import com.zdy.application.common.util.PreferenceUtils
 import com.zdy.application.common.util.WRITE_STORAGE_PERMISSION_CODE
-import kotlinx.android.synthetic.main.activity_login.*
+import com.zdy.application.learnandroid.databinding.ActivityLoginBinding
 
 /**
  * Login业务View层逻辑
@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.activity_login.*
  * @date 2020/04/20
  */
 class LoginActivity : BaseActivity<LoginPresenter>() {
+
+    private val binding = ActivityLoginBinding.inflate(layoutInflater)
 
     private val startLoginTask = {
         showLoadingDialog()
@@ -64,25 +66,25 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
     override fun initView() {
         super.initView()
         // actionbar逻辑
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
-        toolbar.setNavigationOnClickListener {
+        binding.toolbar.setNavigationOnClickListener {
             finish()
         }
 
         // 注册按钮逻辑
-        btn_register.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
             mPresenter.registered()
             // todo 注册逻辑暂未完成
         }
 
         // 登录按钮逻辑
-        btn_login.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             showLoadingDialog()
             mPresenter.login(
-                input_account.text.toString(),
-                input_password.text.toString(),
+                binding.inputAccount.text.toString(),
+                binding.inputPassword.text.toString(),
                 loginSuccessTask,
                 loginFailTask,
                 passwordWrongTask
@@ -93,13 +95,13 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
         val lastUsername = PreferenceUtils.getString(this, PreferenceUtils.USERNAME_KEY)
         val lastPassword = PreferenceUtils.getString(this, PreferenceUtils.PASSWORD_KEY)
         if (!lastUsername.isNullOrEmpty() && !lastPassword.isNullOrEmpty()) {
-            input_account.setText(lastUsername)
-            input_password.setText(lastPassword)
+            binding.inputAccount.setText(lastUsername)
+            binding.inputPassword.setText(lastPassword)
         }
     }
 
-    override fun initLayout(): Int {
-        return R.layout.activity_login
+    override fun initLayout():View {
+        return binding.root
     }
 
 }

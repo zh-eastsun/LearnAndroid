@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 apply from: '../config.gradle'
 
 android {
@@ -10,7 +11,7 @@ android {
     useLibrary "org.apache.http.legacy"
 
     buildFeatures {
-        dataBinding = true
+        dataBinding true
     }
 
     // Hilt必须开启Java 8
@@ -56,8 +57,12 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures{
+        dataBinding = true
+    }
+
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
     }
 
 }

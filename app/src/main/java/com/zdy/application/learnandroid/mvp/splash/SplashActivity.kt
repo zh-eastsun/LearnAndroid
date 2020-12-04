@@ -7,7 +7,7 @@ import com.zdy.application.learnandroid.R
 import com.zdy.application.common.base.mvp.BaseActivity
 import com.zdy.application.learnandroid.mvp.login.LoginActivity
 import com.zdy.application.common.util.ImageUtils
-import kotlinx.android.synthetic.main.activity_splash.*
+import com.zdy.application.learnandroid.databinding.ActivitySplashBinding
 import kotlinx.coroutines.*
 import kotlinx.coroutines.GlobalScope
 import java.util.*
@@ -20,6 +20,8 @@ import java.util.*
  */
 class SplashActivity : BaseActivity<SplashPresenter>() {
 
+    private val binding = ActivitySplashBinding.inflate(layoutInflater)
+
     // 倒计时结束时间(秒)
     private var recLen = 5
     private val timer = Timer()
@@ -28,10 +30,10 @@ class SplashActivity : BaseActivity<SplashPresenter>() {
         override fun run() {
             GlobalScope.launch(Dispatchers.Main) {
                 recLen--
-                text_rec.text = "跳过 $recLen"
+                binding.textRec.text = "跳过 $recLen"
                 if (recLen < 0) {
                     timer.cancel()
-                    text_rec.visibility = View.GONE
+                    binding.textRec.visibility = View.GONE
                     val intent = Intent(context, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -42,7 +44,7 @@ class SplashActivity : BaseActivity<SplashPresenter>() {
 
     override fun initView() {
         super.initView()
-        text_rec.setOnClickListener {
+        binding.textRec.setOnClickListener {
             timerTask.cancel()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -55,13 +57,13 @@ class SplashActivity : BaseActivity<SplashPresenter>() {
         Glide.with(this)
             .load(ImageUtils.getAssetsSplashPicture(this))
             .error(R.mipmap.ic_launcher)
-            .into(image_splash)
+            .into(binding.imageSplash)
 
         timer.schedule(timerTask, 0, 1000)
     }
 
-    override fun initLayout(): Int {
-        return R.layout.activity_splash
+    override fun initLayout(): View {
+        return binding.root
     }
 
     override fun onBindPresenter(): SplashPresenter {
