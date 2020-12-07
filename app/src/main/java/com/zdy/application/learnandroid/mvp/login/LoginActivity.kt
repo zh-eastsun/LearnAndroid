@@ -16,7 +16,7 @@ import com.zdy.application.learnandroid.databinding.ActivityLoginBinding
  */
 class LoginActivity : BaseActivity<LoginPresenter>() {
 
-    private val binding = ActivityLoginBinding.inflate(layoutInflater)
+    private val binding by lazy { ActivityLoginBinding.inflate(layoutInflater) }
 
     private val startLoginTask = {
         showLoadingDialog()
@@ -100,7 +100,7 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
         }
     }
 
-    override fun initLayout():View {
+    override fun initLayout(): View {
         return binding.root
     }
 

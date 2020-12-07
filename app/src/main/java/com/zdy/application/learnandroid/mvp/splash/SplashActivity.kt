@@ -20,7 +20,7 @@ import java.util.*
  */
 class SplashActivity : BaseActivity<SplashPresenter>() {
 
-    private val binding = ActivitySplashBinding.inflate(layoutInflater)
+    private val binding by lazy { ActivitySplashBinding.inflate(layoutInflater) }
 
     // 倒计时结束时间(秒)
     private var recLen = 5
