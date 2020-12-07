@@ -11,15 +11,15 @@ import android.util.Log
  */
 class LogUtil private constructor() {
     companion object {
-        private var defaultTag: String? = "DefaultTag --> "
+        private var defaultTag: String = "DefaultTag --> "
         private var isDebug = false
 
-        fun init(defaultTag: String?, isDebug: Boolean) {
+        fun init(defaultTag: String, isDebug: Boolean) {
             this.defaultTag = defaultTag
             this.isDebug = isDebug
         }
 
-        private fun getFinalTag(tag: String?): String? =
+        private fun getFinalTag(tag: String): String =
             if (!TextUtils.isEmpty(tag)) "$tag --> " else "$defaultTag --> "
 
         private fun getTargetStackTraceElement(): StackTraceElement? {
