@@ -28,7 +28,7 @@ class LogUtil private constructor() {
             val stackTrace = Thread.currentThread().stackTrace
             run breaking@{
                 stackTrace.forEach continuing@{
-                    val isLogMethod = it.className.equals(LogUtil.javaClass.name)
+                    val isLogMethod = it.className == LogUtil.javaClass.name
                     if (shouldTrace && !isLogMethod) {
                         targetStackTraceElement = it
                         return@breaking
