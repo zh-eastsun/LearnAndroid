@@ -7,4 +7,6 @@ package com.zdy.application.common.base.mvvm
  * Time: 7:49 PM
  */
 
-abstract class BaseModel
+abstract class BaseModel {
+
+}

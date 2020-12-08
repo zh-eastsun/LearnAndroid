@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -25,9 +26,9 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val layoutRes = initLayout()
+        val rootView = initLayout()
         doSthBeforeSetContentView()
-        setContentView(layoutRes)
+        setContentView(rootView)
         initView()
         mPresenter = onBindPresenter()
         mPresenter.attachView(this)
@@ -69,7 +70,7 @@ abstract class BaseActivity<P : IPresenter> : AppCompatActivity(), IView {
 
     abstract fun initData()
 
-    abstract fun initLayout(): Int
+    abstract fun initLayout(): View
 
     override fun hideTipDialog() {
         if (baseDialog != null && baseDialog!!.isShowing) baseDialog?.dismiss()

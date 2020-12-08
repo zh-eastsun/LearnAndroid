@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModel
 import com.zdy.application.common.R
 import com.zdy.application.common.base.IView
 import com.zdy.application.common.util.WRITE_STORAGE_PERMISSION_CODE
@@ -20,13 +22,16 @@ import com.zdy.application.common.view.LoadingDialog
  * Date: 11/20/20
  * Time: 11:36 PM
  */
-abstract class BaseActivity : AppCompatActivity(), IView {
+abstract class BaseActivity<VM : ViewModel, VDB : ViewDataBinding> : AppCompatActivity(), IView {
 
-    lateinit var baseDialog: AlertDialog
-    lateinit var loadingDialog: LoadingDialog
+    private lateinit var baseDialog: AlertDialog
+    private lateinit var loadingDialog: LoadingDialog
+    private lateinit var _binding: VDB
+    val binding: VDB
+        get() = _binding
 
     abstract fun otherOperate()
-    abstract fun bindView()
+    abstract fun bindView(): VDB
 
     open fun observeData() {}                    // 订阅被观察者的数据
     open fun initViewModels() {}                 // 初始化viewModel
@@ -65,7 +70,9 @@ abstract class BaseActivity : AppCompatActivity(), IView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bindView()
+        initWindow()
+        _binding = bindView()
+        setContentView(binding.root)
         initViewModels()
         observeData()
         otherOperate()
