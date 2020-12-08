@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import com.zdy.application.common.R
 import com.zdy.application.common.base.IView
 import com.zdy.application.common.view.LoadingDialog
-import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Created by Android Studio.
@@ -18,16 +19,13 @@ import dagger.hilt.android.AndroidEntryPoint
  * Date: 11/26/20
  * Time: 8:44 PM
  */
-abstract class BaseFragment : Fragment(), IView {
+abstract class BaseFragment<VM : ViewModel, VDB : ViewDataBinding> : Fragment(), IView {
 
     lateinit var baseDialog: AlertDialog
     lateinit var loadingDialog: LoadingDialog
+    lateinit var binding: VDB
 
-    abstract fun bindView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View
+    abstract fun bindView(): VDB
 
     protected open fun initView() {}
     protected open fun observeData() {}
@@ -38,10 +36,11 @@ abstract class BaseFragment : Fragment(), IView {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = bindView()
         initView()
         observeData()
         doWork()
-        return bindView(inflater, container, savedInstanceState)
+        return binding.root
     }
 
     override fun hideTipDialog() {
