@@ -24,5 +24,6 @@ abstract class BaseViewModel<M : BaseModel> : ViewModel() {
     override fun onCleared() {
         super.onCleared()
         uiJob.cancel()
+        ioJob.cancel()
     }
 }
