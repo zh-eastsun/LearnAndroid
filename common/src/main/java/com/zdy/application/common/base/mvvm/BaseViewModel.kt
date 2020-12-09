@@ -20,6 +20,7 @@ abstract class BaseViewModel<M : BaseModel> : ViewModel() {
     protected val model: M by lazy { bindModel() }
 
     abstract fun bindModel(): M
+    abstract fun initData()
 
     override fun onCleared() {
         super.onCleared()
