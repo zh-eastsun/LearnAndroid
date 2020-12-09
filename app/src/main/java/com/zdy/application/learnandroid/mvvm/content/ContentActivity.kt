@@ -17,8 +17,8 @@ import com.zdy.application.learnandroid.mvvm.system.SystemFragment
  * Time: 11:52 PM
  */
 
-class ContentActivity : BaseActivity(), View.OnClickListener {
-
+class ContentActivity : BaseActivity<ContentViewModel, ActivityContentBinding>(),
+    View.OnClickListener {
     // 四个不同业务的Fragment
     private var homePageFragment: HomeFragment? = null
     private var systemPageFragment: SystemFragment? = null
@@ -26,15 +26,13 @@ class ContentActivity : BaseActivity(), View.OnClickListener {
     private var personalPageFragment: PersonalFragment? = null
     private val fragmentManager by lazy { supportFragmentManager }
 
-    private val binding by lazy { ActivityContentBinding.inflate(layoutInflater) }
-
     override fun otherOperate() {
         initView()
         setTabSelection(0)
     }
 
-    override fun bindView() {
-        setContentView(binding.root)
+    override fun bindView(): ActivityContentBinding {
+        return ActivityContentBinding.inflate(layoutInflater)
     }
 
     override fun onClick(v: View?) {
@@ -46,7 +44,7 @@ class ContentActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    fun initView() {
+    private fun initView() {
         binding.homePageLayout.setOnClickListener(this)
         binding.systemPageLayout.setOnClickListener(this)
         binding.squarePageLayout.setOnClickListener(this)
