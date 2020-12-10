@@ -8,19 +8,20 @@ ext {
             gsonVersion             : '2.8.6',
             gsonConverterVersion    : '2.9.0',
             bannerVersion           : '2.1.0',
-            hiltVersion             : '2.28-alpha',
+            viewDataBindingVersion  : '4.0.0-alpha03',
+            lifecycleViewModel      : '2.3.0-beta01'
     ]
 
     dependencies = [
-            'glide'             : "com.github.bumptech.glide:glide:${version.glideVersion}",
-            'kotlin-coroutines' : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${version.coroutinesVersion}",
-            'constraintLayout'  : "androidx.constraintlayout:constraintlayout:${version.constraintLayoutVersion}",
-            'materialDesign'    : "com.google.android.material:material:${version.materialDesignVersion}",
-            'retrofit'          : "com.squareup.retrofit2:retrofit:${version.retrofitVersion}",
-            'gson'              : "com.google.code.gson:gson:${version.gsonVersion}",
-            'gsonConverter'     : "com.squareup.retrofit2:converter-gson:${version.gsonConverterVersion}",
-            'banner'            : "com.youth.banner:banner:${version.bannerVersion}",
-            'hilt'              : "com.google.dagger:hilt-android:${version.hiltVersion}",
-            'hilt-compiler'     : "com.google.dagger:hilt-android-compiler:${version.hiltVersion}",
+            'glide'                     : "com.github.bumptech.glide:glide:${version.glideVersion}",
+            'kotlin-coroutines'         : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${version.coroutinesVersion}",
+            'constraintLayout'          : "androidx.constraintlayout:constraintlayout:${version.constraintLayoutVersion}",
+            'materialDesign'            : "com.google.android.material:material:${version.materialDesignVersion}",
+            'retrofit'                  : "com.squareup.retrofit2:retrofit:${version.retrofitVersion}",
+            'gson'                      : "com.google.code.gson:gson:${version.gsonVersion}",
+            'gsonConverter'             : "com.squareup.retrofit2:converter-gson:${version.gsonConverterVersion}",
+            'banner'                    : "com.youth.banner:banner:${version.bannerVersion}",
+            'view-data-binding'         : "androidx.databinding:databinding-runtime:${version.viewDataBindingVersion}",
+            'lifecycle-viewmodel'       : "androidx.lifecycle:lifecycle-viewmodel-ktx:${version.lifecycleViewModel}"
     ]
 }
