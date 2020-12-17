@@ -2,7 +2,7 @@ package com.zdy.application.learnandroid.mvvm.content
 
 import android.view.View
 import androidx.fragment.app.FragmentTransaction
-import com.zdy.application.common.base.mvvm.BaseActivity
+import com.zdy.application.learnandroid.base.mvvm.BaseActivity
 import com.zdy.application.learnandroid.R
 import com.zdy.application.learnandroid.databinding.ActivityContentBinding
 import com.zdy.application.learnandroid.mvvm.home.HomeFragment

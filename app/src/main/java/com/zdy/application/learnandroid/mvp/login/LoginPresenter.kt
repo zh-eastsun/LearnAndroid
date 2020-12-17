@@ -5,14 +5,13 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.zdy.application.common.base.mvp.BasePresenter
-import com.zdy.application.common.base.Origin
+import com.zdy.application.learnandroid.base.mvp.BasePresenter
+import com.zdy.application.learnandroid.base.Origin
 import com.zdy.application.learnandroid.bean.User
-import com.zdy.application.learnandroid.net.api.LoginApi
-import com.zdy.application.common.util.PreferenceUtils
-import com.zdy.application.common.util.hasPermission
+import com.zdy.application.learnandroid.util.PreferenceUtils
+import com.zdy.application.learnandroid.util.hasPermission
 import com.zdy.application.learnandroid.mvvm.content.ContentActivity
-import com.zdy.application.learnandroid.net.api.RequestApi
+import com.zdy.application.learnandroid.net.api.WanApi
 import com.zdy.application.learnandroid.net.interceptor.SaveCookiesInterceptor
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
@@ -74,12 +73,12 @@ class LoginPresenter(val context: Context) : BasePresenter() {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl(RequestApi.BASE_URL)
+            .baseUrl("https://www.wanandroid.com")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
 
-        val request = retrofit.create(LoginApi::class.java)
+        val request = retrofit.create(WanApi::class.java)
         val call = request.login(username, password)
         call.enqueue(object : Callback<User> {
             override fun onFailure(call: Call<User>, t: Throwable) {

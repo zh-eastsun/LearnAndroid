@@ -4,12 +4,13 @@ ext {
             coroutinesVersion       : '1.3.3',
             constraintLayoutVersion : '2.0.0-beta6',
             materialDesignVersion   : '1.1.0',
-            retrofitVersion         : '2.3.0',
+            retrofitVersion         : '2.6.0',
             gsonVersion             : '2.8.6',
             gsonConverterVersion    : '2.9.0',
             bannerVersion           : '2.1.0',
             viewDataBindingVersion  : '4.0.0-alpha03',
-            lifecycleViewModel      : '2.3.0-beta01'
+            lifecycleViewModel      : '2.3.0-beta01',
+            unpeekLiveData          : '3.2.3-beta10',
     ]
 
     dependencies = [
@@ -22,6 +23,7 @@ ext {
             'gsonConverter'             : "com.squareup.retrofit2:converter-gson:${version.gsonConverterVersion}",
             'banner'                    : "com.youth.banner:banner:${version.bannerVersion}",
             'view-data-binding'         : "androidx.databinding:databinding-runtime:${version.viewDataBindingVersion}",
-            'lifecycle-viewmodel'       : "androidx.lifecycle:lifecycle-viewmodel-ktx:${version.lifecycleViewModel}"
+            'lifecycle-viewmodel'       : "androidx.lifecycle:lifecycle-viewmodel-ktx:${version.lifecycleViewModel}",
+            'unpeek-livedata'           : "com.kunminx.archi:unpeek-livedata:${version.unpeekLiveData}"
     ]
 }

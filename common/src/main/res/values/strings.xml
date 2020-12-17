@@ -1,8 +1,0 @@
-<resources>
-    <string name="positive_button_text">确定</string>
-    <string name="dialog_default_tip">请注意</string>
-    <string name="home_label_text">主页</string>
-    <string name="system_label_text">体系</string>
-    <string name="square_label_text">广场</string>
-    <string name="personal_label_text">个人</string>
-</resources>

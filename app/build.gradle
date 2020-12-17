@@ -70,15 +70,16 @@ dependencies {
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation project(':common')
     implementation rootProject.ext.dependencies['glide']
     implementation rootProject.ext.dependencies['kotlin-coroutines']
     implementation rootProject.ext.dependencies['constraintLayout']
     implementation rootProject.ext.dependencies['materialDesign']
-    implementation rootProject.ext.dependencies['retrofit']
     implementation rootProject.ext.dependencies['gson']
-    implementation rootProject.ext.dependencies['gsonConverter']
     implementation rootProject.ext.dependencies['banner']
     implementation rootProject.ext.dependencies['view-data-binding']
     implementation rootProject.ext.dependencies['lifecycle-viewmodel']
+    implementation rootProject.ext.dependencies['kotlin-coroutines']
+    implementation rootProject.ext.dependencies['retrofit']
+    implementation rootProject.ext.dependencies['unpeek-livedata']
+    implementation rootProject.ext.dependencies['gsonConverter']
 }

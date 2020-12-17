@@ -1,8 +1,7 @@
 package com.zdy.application.learnandroid.mvvm.home
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.zdy.application.learnandroid.base.mvvm.BaseViewModel
 import com.zdy.application.learnandroid.bean.BannerData
 
 /**
@@ -12,18 +11,11 @@ import com.zdy.application.learnandroid.bean.BannerData
  * Time: 8:24 PM
  */
 
-class HomeViewModel : ViewModel() {
-    private val bannerData: MutableLiveData<List<BannerData>> by lazy {
-        bannerData.also {
-            loadBannerData()
-        }
-    }
+class HomeViewModel : BaseViewModel() {
 
-    fun getBannerData(): LiveData<List<BannerData>>{
-        return bannerData
-    }
+    val bannerData = MutableLiveData<BannerData>()
 
-    private fun loadBannerData(){
+    fun getBannerData() {
 
     }
 }

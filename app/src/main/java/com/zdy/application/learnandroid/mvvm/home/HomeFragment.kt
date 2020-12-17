@@ -1,10 +1,8 @@
 package com.zdy.application.learnandroid.mvvm.home
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.zdy.application.common.base.mvvm.BaseFragment
+import android.util.Log
+import androidx.lifecycle.ViewModelProvider
+import com.zdy.application.learnandroid.base.mvvm.BaseFragment
 import com.zdy.application.learnandroid.databinding.FragmentHomeBinding
 
 /**
@@ -13,21 +11,30 @@ import com.zdy.application.learnandroid.databinding.FragmentHomeBinding
  * Date: 11/24/20
  * Time: 8:25 PM
  */
-class HomeFragment : BaseFragment() {
 
-    private lateinit var binding: FragmentHomeBinding
+class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
-    override fun initView(){
+    override fun initView() {
 
     }
 
-    override fun bindView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun observeData() {
+        viewModel.bannerData.observe(this,
+            { Log.e("ddd", it.data[0].url) })
+    }
+
+    override fun doWork() {
+        super.doWork()
+        viewModel.getBannerData()
+    }
+
+    override fun bindView(): FragmentHomeBinding {
+        return FragmentHomeBinding.inflate(layoutInflater)
+    }
+
+    override fun bindViewModel(): HomeViewModel {
+        return ViewModelProvider.AndroidViewModelFactory.getInstance(activity!!.application)
+            .create(HomeViewModel::class.java)
     }
 
 }

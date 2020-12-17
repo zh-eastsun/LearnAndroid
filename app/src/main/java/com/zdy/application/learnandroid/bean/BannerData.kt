@@ -8,12 +8,6 @@ package com.zdy.application.learnandroid.bean
  */
 
 data class BannerData(
-    val `data`: List<BannerItemData>,
-    val errorCode: Int,
-    val errorMsg: String
-)
-
-data class BannerItemData(
     val desc: String,
     val id: Int,
     val imagePath: String,

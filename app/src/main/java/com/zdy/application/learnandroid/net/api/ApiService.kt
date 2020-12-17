@@ -9,6 +9,6 @@ import com.zdy.application.learnandroid.net.RetrofitClient
  * Time: 7:55 PM
  */
 object ApiService {
-    suspend fun getApi() =
-        RetrofitClient.getApi("https://www.wanandroid.com", WanApi::class.java)
+    fun getApi() =
+        RetrofitClient.instance.getApi("https://www.wanandroid.com", WanApi::class.java)
 }

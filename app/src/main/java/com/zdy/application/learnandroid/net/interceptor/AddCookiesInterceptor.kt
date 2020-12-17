@@ -2,7 +2,7 @@ package com.zdy.application.learnandroid.net.interceptor
 
 import android.content.Context
 import android.text.TextUtils
-import com.zdy.application.common.util.PreferenceUtils
+import com.zdy.application.learnandroid.util.PreferenceUtils
 import okhttp3.Interceptor
 import okhttp3.Response
 

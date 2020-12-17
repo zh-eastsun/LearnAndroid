@@ -3,9 +3,9 @@ package com.zdy.application.learnandroid.mvp.login
 import android.Manifest
 import android.os.Build
 import android.view.View
-import com.zdy.application.common.base.mvp.BaseActivity
-import com.zdy.application.common.util.PreferenceUtils
-import com.zdy.application.common.util.WRITE_STORAGE_PERMISSION_CODE
+import com.zdy.application.learnandroid.base.mvp.BaseActivity
+import com.zdy.application.learnandroid.util.PreferenceUtils
+import com.zdy.application.learnandroid.util.WRITE_STORAGE_PERMISSION_CODE
 import com.zdy.application.learnandroid.databinding.ActivityLoginBinding
 
 /**
@@ -46,7 +46,7 @@ class LoginActivity : BaseActivity<LoginPresenter>() {
 
     override fun initData() {
         if (Build.VERSION.SDK_INT >= 23) {
-            com.zdy.application.common.util.requestPermissions(
+            com.zdy.application.learnandroid.util.requestPermissions(
                 this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 WRITE_STORAGE_PERMISSION_CODE
             )
