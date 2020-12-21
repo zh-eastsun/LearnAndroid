@@ -1,6 +1,7 @@
 package com.zdy.application.learnandroid.net
 
 /**
+ * 网络请求错误码
  * Created by Android Studio.
  * User: zh.eastsun
  * Date: 12/17/20
