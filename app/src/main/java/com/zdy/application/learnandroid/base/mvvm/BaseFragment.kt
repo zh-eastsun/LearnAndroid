@@ -9,7 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
-import com.zdy.application.common.R
+import com.zdy.application.learnandroid.R
 import com.zdy.application.learnandroid.base.IView
 import com.zdy.application.learnandroid.view.LoadingDialog
 

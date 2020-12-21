@@ -1,5 +1,6 @@
 package com.zdy.application.learnandroid.net.api
 
+import androidx.lifecycle.MutableLiveData
 import com.zdy.application.learnandroid.bean.ApiResponse
 import com.zdy.application.learnandroid.bean.BannerData
 import com.zdy.application.learnandroid.bean.User
@@ -18,7 +19,7 @@ import retrofit2.http.POST
 interface WanApi {
 
     @GET("banner/json")
-    suspend fun bannerJson(): ApiResponse<BannerData>
+    suspend fun bannerJson(): ApiResponse<MutableLiveData<BannerData>>
 
     @FormUrlEncoded
     @POST("user/login")

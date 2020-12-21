@@ -11,7 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
-import com.zdy.application.common.R
+import com.zdy.application.learnandroid.R
 import com.zdy.application.learnandroid.base.IView
 import com.zdy.application.learnandroid.util.WRITE_STORAGE_PERMISSION_CODE
 import com.zdy.application.learnandroid.view.LoadingDialog
