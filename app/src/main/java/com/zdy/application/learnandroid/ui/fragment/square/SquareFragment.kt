@@ -1,4 +1,4 @@
-package com.zdy.application.learnandroid.mvvm.square
+package com.zdy.application.learnandroid.ui.fragment.square
 
 import androidx.fragment.app.Fragment
 

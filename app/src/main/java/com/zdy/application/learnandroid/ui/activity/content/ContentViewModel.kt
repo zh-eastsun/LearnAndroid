@@ -1,4 +1,4 @@
-package com.zdy.application.learnandroid.mvvm.content
+package com.zdy.application.learnandroid.ui.activity.content
 
 import androidx.lifecycle.ViewModel
 

@@ -1,4 +1,4 @@
-package com.zdy.application.learnandroid.mvvm.system
+package com.zdy.application.learnandroid.ui.fragment.system
 
 import androidx.fragment.app.Fragment
 

@@ -10,7 +10,7 @@ import com.zdy.application.learnandroid.base.Origin
 import com.zdy.application.learnandroid.bean.User
 import com.zdy.application.learnandroid.util.PreferenceUtils
 import com.zdy.application.learnandroid.util.hasPermission
-import com.zdy.application.learnandroid.mvvm.content.ContentActivity
+import com.zdy.application.learnandroid.ui.activity.content.ContentActivity
 import com.zdy.application.learnandroid.net.api.WanApi
 import com.zdy.application.learnandroid.net.interceptor.SaveCookiesInterceptor
 import kotlinx.coroutines.launch

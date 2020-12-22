@@ -1,14 +1,14 @@
-package com.zdy.application.learnandroid.mvvm.content
+package com.zdy.application.learnandroid.ui.activity.content
 
 import android.view.View
 import androidx.fragment.app.FragmentTransaction
 import com.zdy.application.learnandroid.base.mvvm.BaseActivity
 import com.zdy.application.learnandroid.R
 import com.zdy.application.learnandroid.databinding.ActivityContentBinding
-import com.zdy.application.learnandroid.mvvm.home.HomeFragment
-import com.zdy.application.learnandroid.mvvm.personal.PersonalFragment
-import com.zdy.application.learnandroid.mvvm.square.SquareFragment
-import com.zdy.application.learnandroid.mvvm.system.SystemFragment
+import com.zdy.application.learnandroid.ui.fragment.home.HomeFragment
+import com.zdy.application.learnandroid.ui.fragment.personal.PersonalFragment
+import com.zdy.application.learnandroid.ui.fragment.square.SquareFragment
+import com.zdy.application.learnandroid.ui.fragment.system.SystemFragment
 
 /**
  * Created by Android Studio.

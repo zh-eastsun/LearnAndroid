@@ -1,6 +1,5 @@
-package com.zdy.application.learnandroid.mvvm.home
+package com.zdy.application.learnandroid.ui.fragment.home
 
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.zdy.application.learnandroid.base.mvvm.BaseFragment
 import com.zdy.application.learnandroid.databinding.FragmentHomeBinding
@@ -19,8 +18,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     }
 
     override fun observeData() {
-        viewModel.bannerData.observe(this,
-            { Log.e("ddd", it.data[0].url) })
+
     }
 
     override fun doWork() {

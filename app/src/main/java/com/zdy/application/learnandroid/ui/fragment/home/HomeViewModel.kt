@@ -1,8 +1,6 @@
-package com.zdy.application.learnandroid.mvvm.home
+package com.zdy.application.learnandroid.ui.fragment.home
 
-import androidx.lifecycle.MutableLiveData
 import com.zdy.application.learnandroid.base.mvvm.BaseViewModel
-import com.zdy.application.learnandroid.bean.BannerData
 
 /**
  * Created by Android Studio.
@@ -12,8 +10,6 @@ import com.zdy.application.learnandroid.bean.BannerData
  */
 
 class HomeViewModel : BaseViewModel() {
-
-    val bannerData = MutableLiveData<BannerData>()
 
     fun getBannerData() {
 
