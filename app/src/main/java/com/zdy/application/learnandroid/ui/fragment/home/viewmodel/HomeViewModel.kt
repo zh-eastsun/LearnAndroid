@@ -1,4 +1,4 @@
-package com.zdy.application.learnandroid.ui.fragment.home
+package com.zdy.application.learnandroid.ui.fragment.home.viewmodel
 
 import com.zdy.application.learnandroid.base.mvvm.BaseViewModel
 

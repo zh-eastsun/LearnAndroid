@@ -1,8 +1,9 @@
-package com.zdy.application.learnandroid.ui.fragment.home
+package com.zdy.application.learnandroid.ui.fragment.home.view
 
 import androidx.lifecycle.ViewModelProvider
 import com.zdy.application.learnandroid.base.mvvm.BaseFragment
 import com.zdy.application.learnandroid.databinding.FragmentHomeBinding
+import com.zdy.application.learnandroid.ui.fragment.home.viewmodel.HomeViewModel
 
 /**
  * Created by Android Studio.
